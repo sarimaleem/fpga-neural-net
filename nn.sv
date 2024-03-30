@@ -25,6 +25,7 @@ module matrix_dot_product #(
                 result_matrix[i*n2+j] = sum;
             end
         end
+        $display("\nMODULE OUTPUT");
         for (int i = 0; i < m1*n2; i++) begin
             $display("result_matrix[%0d] = %f", i, result_matrix[i]);
         end

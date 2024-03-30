@@ -13,7 +13,7 @@ SOURCES = testbench.sv nn.sv
 
 .PHONY: all build run simulate clean
 
-all: build run simulate
+all: build run
 
 build: $(SOURCES)
 	$(IVL) $(IVLFLAGS) -o $(OUTPUT) $(SOURCES)

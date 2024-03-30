@@ -44,7 +44,7 @@ initial begin
 
     #10;
 
-    // $display("Result matrix:");
+    $display("\nTEST BENCH OUTPUT");
     for (int i = 0; i < m1*n2; i++) begin
         $display("result_matrix[%0d] = %f", i, result_matrix[i]);
     end
