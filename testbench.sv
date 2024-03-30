@@ -1,5 +1,6 @@
 `timescale 1ns / 1ps
-module testbench;
+
+module testbench();
 
 // Testbench parameters
 parameter m1 = 2;
@@ -8,7 +9,7 @@ parameter m2 = 2;
 parameter n2 = 2;
 
 // Testbench variables
-logic clk, reset, enable;
+logic clk;
 real matrix_a[m1*n1-1:0];
 real matrix_b[m2*n2-1:0];
 real result_matrix[m1*n2-1:0];
@@ -16,8 +17,6 @@ real result_matrix[m1*n2-1:0];
 // Instantiate the module under test
 matrix_dot_product #(.m1(m1), .n1(n1), .m2(m2), .n2(n2)) uut (
     .clk(clk),
-    .reset(reset),
-    .enable(enable),
     .matrix_a(matrix_a),
     .matrix_b(matrix_b),
     .result_matrix(result_matrix)
@@ -32,8 +31,6 @@ initial begin
     $dumpvars(0, testbench);
 
     #10;
-
-    enable = 1;
 
     matrix_a[0] = 1.0;
     matrix_a[1] = 2.0;
@@ -55,6 +52,4 @@ initial begin
     // Finish the simulation
     $finish;
 end
-
-
 endmodule

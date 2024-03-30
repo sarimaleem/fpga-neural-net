@@ -5,8 +5,6 @@ module matrix_dot_product #(
     parameter n2 = 2
 )(
     input logic clk,
-    input logic reset,
-    input logic enable,
     input real matrix_a[m1*n1-1:0],
     input real matrix_b[m2*n2-1:0],
     output real result_matrix[m1*n2-1:0]
