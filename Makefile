@@ -18,6 +18,9 @@ all: build run
 build: $(SOURCES)
 	$(IVL) $(IVLFLAGS) -o $(OUTPUT) $(SOURCES)
 
+buildfile:
+	$(IVL) $(IVFLAGS) -o filebench.out filetestbench.sv
+
 run: $(OUTPUT)
 	$(VVP) $(OUTPUT)
 
