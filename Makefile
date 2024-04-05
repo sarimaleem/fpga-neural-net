@@ -19,7 +19,7 @@ build: $(SOURCES)
 	$(IVL) $(IVLFLAGS) -o $(OUTPUT) $(SOURCES)
 
 buildfile:
-	$(IVL) $(IVFLAGS) -o filebench.out filetestbench.sv
+	iverilog -g2012 -o filebench.out filetestbench.sv
 
 run: $(OUTPUT)
 	$(VVP) $(OUTPUT)
