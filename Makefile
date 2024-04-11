@@ -28,5 +28,5 @@ simulate:
 	$(GTKWAVE) $(WAVEFORM)
 
 clean:
-	rm -f $(OUTPUT) $(WAVEFORM)
+	rm -f *.fcd *.out
 
