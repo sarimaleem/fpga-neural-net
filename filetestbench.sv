@@ -24,3 +24,5 @@ module filetestbench;
         end
     end
 endmodule
+
+module readfile()
