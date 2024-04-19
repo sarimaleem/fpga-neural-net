@@ -1,0 +1,10 @@
+# CMake generated Testfile for 
+# Source directory: /Users/dhruvnistala/VSCode/CS350C/Final_Project/Open_CV/opencv/modules/videoio
+# Build directory: /Users/dhruvnistala/VSCode/CS350C/Final_Project/Open_CV/build/modules/videoio
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.
+add_test(opencv_perf_videoio "/Users/dhruvnistala/VSCode/CS350C/Final_Project/Open_CV/build/bin/opencv_perf_videoio" "--gtest_output=xml:opencv_perf_videoio.xml")
+set_tests_properties(opencv_perf_videoio PROPERTIES  LABELS "Main;opencv_videoio;Performance" WORKING_DIRECTORY "/Users/dhruvnistala/VSCode/CS350C/Final_Project/Open_CV/build/test-reports/performance" _BACKTRACE_TRIPLES "/Users/dhruvnistala/VSCode/CS350C/Final_Project/Open_CV/opencv/cmake/OpenCVUtils.cmake;1795;add_test;/Users/dhruvnistala/VSCode/CS350C/Final_Project/Open_CV/opencv/cmake/OpenCVModule.cmake;1274;ocv_add_test_from_target;/Users/dhruvnistala/VSCode/CS350C/Final_Project/Open_CV/opencv/modules/videoio/CMakeLists.txt;278;ocv_add_perf_tests;/Users/dhruvnistala/VSCode/CS350C/Final_Project/Open_CV/opencv/modules/videoio/CMakeLists.txt;0;")
+add_test(opencv_sanity_videoio "/Users/dhruvnistala/VSCode/CS350C/Final_Project/Open_CV/build/bin/opencv_perf_videoio" "--gtest_output=xml:opencv_perf_videoio.xml" "--perf_min_samples=1" "--perf_force_samples=1" "--perf_verify_sanity")
+set_tests_properties(opencv_sanity_videoio PROPERTIES  LABELS "Main;opencv_videoio;Sanity" WORKING_DIRECTORY "/Users/dhruvnistala/VSCode/CS350C/Final_Project/Open_CV/build/test-reports/sanity" _BACKTRACE_TRIPLES "/Users/dhruvnistala/VSCode/CS350C/Final_Project/Open_CV/opencv/cmake/OpenCVUtils.cmake;1795;add_test;/Users/dhruvnistala/VSCode/CS350C/Final_Project/Open_CV/opencv/cmake/OpenCVModule.cmake;1275;ocv_add_test_from_target;/Users/dhruvnistala/VSCode/CS350C/Final_Project/Open_CV/opencv/modules/videoio/CMakeLists.txt;278;ocv_add_perf_tests;/Users/dhruvnistala/VSCode/CS350C/Final_Project/Open_CV/opencv/modules/videoio/CMakeLists.txt;0;")
