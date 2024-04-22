@@ -1,0 +1,53 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 100C Model Setup 'pi_clk'
+Slack : -1.074
+TNS   : -25.831
+
+Type  : Slow 1100mV 100C Model Hold 'pi_clk'
+Slack : 0.452
+TNS   : 0.000
+
+Type  : Slow 1100mV 100C Model Minimum Pulse Width 'pi_clk'
+Slack : -0.538
+TNS   : -24.078
+
+Type  : Slow 1100mV -40C Model Setup 'pi_clk'
+Slack : -1.011
+TNS   : -23.787
+
+Type  : Slow 1100mV -40C Model Hold 'pi_clk'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Slow 1100mV -40C Model Minimum Pulse Width 'pi_clk'
+Slack : -0.538
+TNS   : -22.966
+
+Type  : Fast 1100mV 100C Model Setup 'pi_clk'
+Slack : 0.033
+TNS   : 0.000
+
+Type  : Fast 1100mV 100C Model Hold 'pi_clk'
+Slack : 0.182
+TNS   : 0.000
+
+Type  : Fast 1100mV 100C Model Minimum Pulse Width 'pi_clk'
+Slack : -0.575
+TNS   : -21.466
+
+Type  : Fast 1100mV -40C Model Setup 'pi_clk'
+Slack : 0.161
+TNS   : 0.000
+
+Type  : Fast 1100mV -40C Model Hold 'pi_clk'
+Slack : 0.166
+TNS   : 0.000
+
+Type  : Fast 1100mV -40C Model Minimum Pulse Width 'pi_clk'
+Slack : -0.614
+TNS   : -24.015
+
+------------------------------------------------------------
