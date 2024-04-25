@@ -1,12 +1,12 @@
-Fitter Status : Successful - Mon Apr 22 17:20:55 2024
+Fitter Status : Successful - Wed Apr 24 22:33:12 2024
 Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 Revision Name : neuralnet
 Top-level Entity Name : neuralnet
 Family : Cyclone V
 Device : 5CSEBA6U23I7
 Timing Models : Final
-Logic utilization (in ALMs) : 14 / 41,910 ( < 1 % )
-Total registers : 26
+Logic utilization (in ALMs) : 15 / 41,910 ( < 1 % )
+Total registers : 27
 Total pins : 19 / 314 ( 6 % )
 Total virtual pins : 0
 Total block memory bits : 0 / 5,662,720 ( 0 % )
