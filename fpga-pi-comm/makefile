@@ -5,4 +5,4 @@ run: build
 	vvp test.out
 
 simulate: run
-	gtkwave 
+	gtkwave

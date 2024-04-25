@@ -14,11 +14,9 @@ module fpga_recv (
         count = 0;
     end
 
-    always @(count) begin
-        assign LED = count > 0 ? bytes[count - 1] : 6'b0;
-    end
+    assign LED = bytes[buttons][5:0];
 
-    always @(posedge pi_clk or negedge rst_n) begin
+    always @(posedge pi_clk or posedge rst_n) begin
         if (rst_n) begin
             // Reset count and bytes
             count <= 2'b00;

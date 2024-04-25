@@ -27,11 +27,20 @@ module tb();
         rst_n = 1'b0;
         write_enable = 1'b1;
 
-        for (int i = 0; i < 4; i++) begin
-            gpio_pin = data_from_pi[i];
+        gpio_pin = data_from_pi[0];
+        buttons = 2'b0;
+        @(posedge pi_clk);
+
+        for (int i = 1; i < 4; i++) begin
             @(posedge pi_clk);
+            gpio_pin = data_from_pi[i];
+            buttons = i[1:0];
             $display("bottom 6 bits! %b", LED);
         end
+
+        @(posedge pi_clk);
+        $display("bottom 6 bits! %b", LED);
+
         $finish;
     end
 endmodule
