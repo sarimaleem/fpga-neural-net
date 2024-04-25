@@ -8,7 +8,7 @@ module fpga_recv (
 );
     // Memory to store bytes from GPIO
     logic [7:0] bytes [3:0];
-    logic [2:0] count; // 4 possible places you can write, initialized to 0
+    logic [3:0] count; // 4 possible places you can write, initialized to 0
 
     initial begin
         count = 0;
