@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/dhruvnistala/VSCode/CS350C/Final_Project/main.cpp" "CMakeFiles/Open_CV_Project.dir/main.cpp.o" "gcc" "CMakeFiles/Open_CV_Project.dir/main.cpp.o.d"
+  "/Users/dhruvnistala/VSCode/CS350C/FinalProject/HLS/main_NoHeaders.cpp" "CMakeFiles/Open_CV_Project.dir/main_NoHeaders.cpp.o" "gcc" "CMakeFiles/Open_CV_Project.dir/main_NoHeaders.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
