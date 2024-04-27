@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Wed Apr 24 22:32:27 2024
+Analysis & Synthesis Status : Successful - Fri Apr 26 18:34:24 2024
 Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 Revision Name : neuralnet
 Top-level Entity Name : neuralnet
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 27
+Total registers : 38
 Total pins : 19
 Total virtual pins : 0
 Total block memory bits : 0

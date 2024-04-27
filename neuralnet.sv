@@ -1,34 +1,38 @@
 module neuralnet (
     input wire [7:0] gpio_pin, // GPIO pin input
     input wire pi_clk, // Raspberry Pi clock
-    input wire rst_n, // Active low reset
+    input wire rst, // Active high reset
     input wire write_enable, // Enable writing to memory
-    input wire [1:0] buttons, // Button inputs to select memory
+    input wire [1:0] buttons, // Button inputs to select memory region
     output logic [5:0] LED // LED output
 );
-    // Memory to store bytes from GPIO
-    logic [7:0] bytes [3:0];
-    logic [3:0] count; // 4 possible places you can write, initialized to 0
+
+    parameter int LENGTH = 28;
+    parameter int WIDTH = 28;
+
+    logic [7:0] bytes [LENGTH*WIDTH - 1:0];
+    signed logic [7:0] weights [50:0];
+    logic [31:0] count;
 
     initial begin
         count = 0;
     end
 
-    assign LED = bytes[buttons][5:0];
 
-    always @(posedge pi_clk or posedge rst_n) begin
-        if (rst_n) begin
-            // Reset count and bytes
-            count <= 2'b00;
-            bytes[0] <= 8'd0;
-            bytes[1] <= 8'd0;
-            bytes[2] <= 8'd0;
-            bytes[3] <= 8'd0;
+    always @(posedge pi_clk or posedge rst) begin
+        if (rst) begin
+            // Reset the count and byte storage
+            count = 0;
+            for (int i = 0; i < LENGTH*WIDTH; i++) begin
+                bytes[i] = 8'd0;
+            end
         end 
-        else if (write_enable && count < 4) begin
-            bytes[count] <= gpio_pin;
-            count <= count + 1;
+        else if (write_enable && count < LENGTH*WIDTH) begin
+            bytes[count] = gpio_pin;
+            count = count + 1;
         end
     end
 
+    // assign LED = 5'b10101;
+    assign LED = bytes[155][5:0];
 endmodule

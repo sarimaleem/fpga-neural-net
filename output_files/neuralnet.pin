@@ -203,7 +203,7 @@ VCCIO3B                      : AE13      : power  :                   : 3.3V    
 DNU                          : AE14      :        :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AE15      :        :                   :         : 4A        :                
 GND                          : AE16      : gnd    :                   :         :           :                
-rst_n                        : AE17      : input  : 3.3-V LVTTL       :         : 4A        : Y              
+rst                          : AE17      : input  : 3.3-V LVTTL       :         : 4A        : Y              
 GND                          : AE18      : gnd    :                   :         :           :                
 write_enable                 : AE19      : input  : 3.3-V LVTTL       :         : 4A        : Y              
 pi_clk                       : AE20      : input  : 3.3-V LVTTL       :         : 4A        : Y              
