@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Open_CV_Project.dir/main_NoHeaders.cpp.o"
-  "CMakeFiles/Open_CV_Project.dir/main_NoHeaders.cpp.o.d"
+  "CMakeFiles/Open_CV_Project.dir/main_neutered.cpp.o"
+  "CMakeFiles/Open_CV_Project.dir/main_neutered.cpp.o.d"
   "Open_CV_Project"
   "Open_CV_Project.pdb"
 )
