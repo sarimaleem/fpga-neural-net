@@ -57,10 +57,10 @@ RM = /opt/homebrew/Cellar/cmake/3.29.1/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/dhruvnistala/VSCode/CS350C/Final_Project
+CMAKE_SOURCE_DIR = /Users/dhruvnistala/VSCode/CS350C/FinalProject/HLS
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/dhruvnistala/VSCode/CS350C/Final_Project
+CMAKE_BINARY_DIR = /Users/dhruvnistala/VSCode/CS350C/FinalProject/HLS
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /Users/dhruvnistala/VSCode/CS350C/Final_Project
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
-	/opt/homebrew/Cellar/cmake/3.29.0/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/opt/homebrew/Cellar/cmake/3.29.1/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/dhruvnistala/VSCode/CS350C/Final_Project/CMakeFiles /Users/dhruvnistala/VSCode/CS350C/Final_Project//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/dhruvnistala/VSCode/CS350C/FinalProject/HLS/CMakeFiles /Users/dhruvnistala/VSCode/CS350C/FinalProject/HLS//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/dhruvnistala/VSCode/CS350C/Final_Project/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/dhruvnistala/VSCode/CS350C/FinalProject/HLS/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -129,29 +129,29 @@ Open_CV_Project/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Open_CV_Project.dir/build.make CMakeFiles/Open_CV_Project.dir/build
 .PHONY : Open_CV_Project/fast
 
-main.o: main.cpp.o
-.PHONY : main.o
+main_NoHeaders.o: main_NoHeaders.cpp.o
+.PHONY : main_NoHeaders.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Open_CV_Project.dir/build.make CMakeFiles/Open_CV_Project.dir/main.cpp.o
-.PHONY : main.cpp.o
+main_NoHeaders.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Open_CV_Project.dir/build.make CMakeFiles/Open_CV_Project.dir/main_NoHeaders.cpp.o
+.PHONY : main_NoHeaders.cpp.o
 
-main.i: main.cpp.i
-.PHONY : main.i
+main_NoHeaders.i: main_NoHeaders.cpp.i
+.PHONY : main_NoHeaders.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Open_CV_Project.dir/build.make CMakeFiles/Open_CV_Project.dir/main.cpp.i
-.PHONY : main.cpp.i
+main_NoHeaders.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Open_CV_Project.dir/build.make CMakeFiles/Open_CV_Project.dir/main_NoHeaders.cpp.i
+.PHONY : main_NoHeaders.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+main_NoHeaders.s: main_NoHeaders.cpp.s
+.PHONY : main_NoHeaders.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Open_CV_Project.dir/build.make CMakeFiles/Open_CV_Project.dir/main.cpp.s
-.PHONY : main.cpp.s
+main_NoHeaders.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Open_CV_Project.dir/build.make CMakeFiles/Open_CV_Project.dir/main_NoHeaders.cpp.s
+.PHONY : main_NoHeaders.cpp.s
 
 # Help Target
 help:
@@ -162,9 +162,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Open_CV_Project"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... main_NoHeaders.o"
+	@echo "... main_NoHeaders.i"
+	@echo "... main_NoHeaders.s"
 .PHONY : help
 
 
