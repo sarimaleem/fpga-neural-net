@@ -1,6 +1,8 @@
+`include "global_params.vh"
+
 module get_vertical_strip (
-    input wire [199:0][299:0] image,
-    output reg [299:0] strip // column has index of the 200 rows of the test strip
+    input wire [HEIGHT-1:0][LENGTH-1-1:0] image,
+    output reg [LENGTH-1:0] strip // column has index of the 200 rows of the test strip
 );
 
 // find the leftmost pixel
@@ -12,8 +14,8 @@ reg done = 1'b0;
 
 always @(*) begin
     column = 0;
-    for (int i = 0; i < 300; i++) begin
-        if (|image[i] && ~done) begin
+    for (int i = 0; i < LENGTH; i++) begin
+        if (|image[i] && ~done) begin // wrong
             column = i;
             done = 1'b1;
         end
@@ -21,9 +23,9 @@ always @(*) begin
 end
 
 always @(*) begin
-    for (int i = 0; i < 200; i++) begin
-        for (int j = 0; j < 300; j++) begin
-            if (i == column) begin
+    for (int i = 0; i < HEIGHT; i++) begin
+        for (int j = 0; j < LENGTH; j++) begin
+            if (done && i == column) begin
                 strip[j] = image[i][j];
             end
         end

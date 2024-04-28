@@ -1,34 +1,28 @@
-module TwoDArrayExample;
+`include "global_params.vh"
 
-  // Define parameters for array dimensions
-  parameter WIDTH = 3;
-  parameter HEIGHT = 3;
+module TwoDArrayExample(input startin, input logic [HEIGHT-1:0][LENGTH-1:0][2:0][7:0] image, output logic [2:0] result);
 
-  // Define 2D array
-  reg [7:0] array [0:HEIGHT-1][0:WIDTH-1];
+	
+	logic [2:0][7:0] lower_green = {36, 25, 25};
+    logic [2:0][7:0] upper_green = {86, 255, 255};
+	logic [HEIGHT-1:0][LENGTH-1:0] filtered_image;
 
-  // Initialize array elements
-  initial begin
-    array[0][0] = 8'h01;
-    array[0][1] = 8'h02;
-    array[0][2] = 8'h03;
-    array[1][0] = 8'h04;
-    array[1][1] = 8'h05;
-    array[1][2] = 8'h06;
-    array[2][0] = 8'h07;
-    array[2][1] = 8'h08;
-    array[2][2] = 8'h09;
-  end
+	filter_green green(image, lower_green, upper_green, filtered_image);
 
-  // Display array elements
-  always @* begin
-    $display("Image Array:");
-    for (int i = 0; i < HEIGHT; i = i + 1) begin
-      for (int j = 0; j < WIDTH; j = j + 1) begin
-        $write("[%h]", array[i][j]);
-      end
-      $display("");
-    end
-  end
+	logic [7:0] sum;
+	logic [7:0] sum_left;
+
+	sum_pixels sum(filtered_image, sum, sum_left);
+
+	logic [LENGTH-1:0] strip;
+	get_vertical_strip strip(filtered_image, strip);
+
+	logic [31:0] transitions;
+	test_vertical_strip test(strip, transitions);
+
+	// result: 0 is rock, 1 is paper, 2 is scissors
+	assign result = transitions == 4 ? 2 : sum_left > 1200 : 1 : 0;
+	
+
 
 endmodule

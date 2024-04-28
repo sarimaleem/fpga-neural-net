@@ -1,5 +1,7 @@
+`include "global_params.vh"
+
 module test_vertical_strip (
-    input reg [199:0][299:0] strip,
+    input reg [WIDTH-1:0][LENGTH-1:0] strip,
     output reg [31:0] transitions
 );
 
@@ -10,7 +12,7 @@ initial
 
 genvar i;
 generate
-    for (i = 0; i < 298; i = i + 1) begin
+    for (i = 0; i < WIDTH-2; i = i + 1) begin
         always @(*) begin
             if (strip[i] != strip[i+1]) begin
                 transitions = transitions + 1;
