@@ -1,4 +1,4 @@
-`include "global_params.vh"
+`include "global_params.svh"
 
 module sum_pixels(input wire [HEIGHT-1:0][LENGTH-1:0] image, output reg [31:0] sum, output reg [31:0] sum_left) ;
 
