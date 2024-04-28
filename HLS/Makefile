@@ -129,29 +129,29 @@ Open_CV_Project/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Open_CV_Project.dir/build.make CMakeFiles/Open_CV_Project.dir/build
 .PHONY : Open_CV_Project/fast
 
-main_NoHeaders.o: main_NoHeaders.cpp.o
-.PHONY : main_NoHeaders.o
+main_neutered.o: main_neutered.cpp.o
+.PHONY : main_neutered.o
 
 # target to build an object file
-main_NoHeaders.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Open_CV_Project.dir/build.make CMakeFiles/Open_CV_Project.dir/main_NoHeaders.cpp.o
-.PHONY : main_NoHeaders.cpp.o
+main_neutered.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Open_CV_Project.dir/build.make CMakeFiles/Open_CV_Project.dir/main_neutered.cpp.o
+.PHONY : main_neutered.cpp.o
 
-main_NoHeaders.i: main_NoHeaders.cpp.i
-.PHONY : main_NoHeaders.i
+main_neutered.i: main_neutered.cpp.i
+.PHONY : main_neutered.i
 
 # target to preprocess a source file
-main_NoHeaders.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Open_CV_Project.dir/build.make CMakeFiles/Open_CV_Project.dir/main_NoHeaders.cpp.i
-.PHONY : main_NoHeaders.cpp.i
+main_neutered.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Open_CV_Project.dir/build.make CMakeFiles/Open_CV_Project.dir/main_neutered.cpp.i
+.PHONY : main_neutered.cpp.i
 
-main_NoHeaders.s: main_NoHeaders.cpp.s
-.PHONY : main_NoHeaders.s
+main_neutered.s: main_neutered.cpp.s
+.PHONY : main_neutered.s
 
 # target to generate assembly for a file
-main_NoHeaders.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Open_CV_Project.dir/build.make CMakeFiles/Open_CV_Project.dir/main_NoHeaders.cpp.s
-.PHONY : main_NoHeaders.cpp.s
+main_neutered.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Open_CV_Project.dir/build.make CMakeFiles/Open_CV_Project.dir/main_neutered.cpp.s
+.PHONY : main_neutered.cpp.s
 
 # Help Target
 help:
@@ -162,9 +162,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Open_CV_Project"
-	@echo "... main_NoHeaders.o"
-	@echo "... main_NoHeaders.i"
-	@echo "... main_NoHeaders.s"
+	@echo "... main_neutered.o"
+	@echo "... main_neutered.i"
+	@echo "... main_neutered.s"
 .PHONY : help
 
 
