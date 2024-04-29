@@ -1,5 +1,5 @@
 Flow report for neuralnet
-Sun Apr 28 23:30:11 2024
+Sun Apr 28 23:39:26 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -41,7 +41,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +---------------------------------+------------------------------------------------+
-; Flow Status                     ; Successful - Sun Apr 28 23:30:05 2024          ;
+; Flow Status                     ; Successful - Sun Apr 28 23:39:20 2024          ;
 ; Quartus Prime Version           ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                   ; neuralnet                                      ;
 ; Top-level Entity Name           ; neuralnet                                      ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/28/2024 23:29:13 ;
+; Start date & time ; 04/28/2024 23:38:28 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; neuralnet           ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 61573273711333.171436495321397         ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 61573273711333.171436550723934         ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -98,11 +98,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:09     ; 1.0                     ; 461 MB              ; 00:00:23                           ;
-; Fitter               ; 00:00:34     ; 1.0                     ; 1817 MB             ; 00:00:59                           ;
+; Analysis & Synthesis ; 00:00:10     ; 1.0                     ; 458 MB              ; 00:00:24                           ;
+; Fitter               ; 00:00:35     ; 1.0                     ; 1819 MB             ; 00:01:00                           ;
 ; Assembler            ; 00:00:06     ; 1.0                     ; 512 MB              ; 00:00:06                           ;
 ; Timing Analyzer      ; 00:00:05     ; 1.1                     ; 855 MB              ; 00:00:05                           ;
-; Total                ; 00:00:54     ; --                      ; --                  ; 00:01:33                           ;
+; Total                ; 00:00:56     ; --                      ; --                  ; 00:01:35                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

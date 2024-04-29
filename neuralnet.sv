@@ -45,15 +45,15 @@ module neuralnet (
         end 
         else if (write_enable && count < HEIGHT*WIDTH*DEPTH) begin
             // Calculate indices based on the count
-            d = d + 1;
-            if (d == DEPTH) begin
-                d = 0;
-                w = w + 1;
-            end
-            if (w == WIDTH) begin
-                w = 0;
-                h = h + 1;
-            end
+            // d = d + 1;
+            // if (d == DEPTH) begin
+            //     d = 0;
+            //     w = w + 1;
+            // end
+            // if (w == WIDTH) begin
+            //     w = 0;
+            //     h = h + 1;
+            // end
             image[count] = gpio_pin;
             count = count + 1;
         end

@@ -1,5 +1,5 @@
 Fitter report for neuralnet
-Sun Apr 28 23:29:57 2024
+Sun Apr 28 23:39:13 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -63,7 +63,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +---------------------------------+------------------------------------------------+
-; Fitter Status                   ; Successful - Sun Apr 28 23:29:57 2024          ;
+; Fitter Status                   ; Successful - Sun Apr 28 23:39:13 2024          ;
 ; Quartus Prime Version           ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                   ; neuralnet                                      ;
 ; Top-level Entity Name           ; neuralnet                                      ;
@@ -1564,7 +1564,7 @@ Info (170195): Router estimated average interconnect usage is 0% of the availabl
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
-Info (11888): Total time spent on timing analysis during the Fitter is 0.21 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.22 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -1572,8 +1572,8 @@ Info (334004): Delay annotation completed successfully
 Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:03
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Info: Quartus Prime Fitter was successful. 0 errors, 14 warnings
-    Info: Peak virtual memory: 1817 megabytes
-    Info: Processing ended: Sun Apr 28 23:29:58 2024
+    Info: Peak virtual memory: 1819 megabytes
+    Info: Processing ended: Sun Apr 28 23:39:13 2024
     Info: Elapsed time: 00:00:35
     Info: Total CPU time (on all processors): 00:01:00
 
