@@ -1,9 +1,20 @@
-clean:
-	rm -r obj_dir
-	mkdir obj_dir
+SV_FILES = *.sv *.svh
 
-build: clean
-	iverilog -g2012 -o obj_dir/test.out *.sv *.svh &> out.txt
+lint:
+	verilator --lint-only --timing ${SV_FILES}
+
+build:
+	verilator --cc --exe --build --timing -j 0 --top-module classifier_tb ${SV_FILES} tb.cpp 
 
 test: build
-	vvp obj_dir/test.out
+	obj_dir/Vclassifier_tb
+
+# clean:
+# 	rm -r obj_dir
+# 	mkdir obj_dir
+
+# build: clean
+# 	iverilog -g2012 -o obj_dir/test.out *.sv *.svh &> out.txt
+
+# test: build
+# 	vvp obj_dir/test.out
