@@ -2,7 +2,7 @@
 
 module classifier (
     input logic clk,
-    input logic init_in, 
+    input logic init_in,
     input logic [7:0] image [LENGTH-1:0][WIDTH-1:0][2:0]
 );
 
@@ -14,15 +14,15 @@ module classifier (
     sum_pixels my_sum(init_in, filtered, sum, sum_left);
 
     logic [LENGTH-1:0] strip;
-	// get_vertical_strip my_strip(filtered_image, strip);
+	get_vertical_strip my_strip(init_in, filtered, strip);
 
     always @(posedge clk) begin
         if (init_in) begin
-            // $display("true true %b", filtered[7][0]);
             for (int i = 0; i < LENGTH; i++) begin
                 $display("%b", filtered[i]);
             end
-            $display("sum: %b %b", sum_left, sum);
+            $display("sum: %d %d", sum_left, sum);
+            $display("strip: %b", strip);
             $display("DONE\n");
         end
     end
@@ -97,11 +97,15 @@ endmodule
 
 
 module get_vertical_strip (
+    input logic init_in,
     input logic [LENGTH-1:0][WIDTH-1:0] filtered,
     output logic [LENGTH-1] strip
 );
     // Getting leftmost index
     // Take a bitwise of each column. Store the index of the first column we come across
+
+    wire [31:0] leftmost_index;
+
     genvar j, i;
     generate
         wire [31:0] leftmost_index_dp [WIDTH:0];
@@ -113,7 +117,7 @@ module get_vertical_strip (
             assign or_reduction_dp[0] = 1'b0;
 
             for (i = 1; i <= LENGTH; i++) begin
-                assign or_reduction_dp[i] = filtered[i][j] | or_reduction_dp[i - 1];
+                assign or_reduction_dp[i] = init_in & (filtered[i][j] | or_reduction_dp[i - 1]);
             end
 
             wire col_has_hand;
@@ -122,10 +126,29 @@ module get_vertical_strip (
             assign leftmost_index_dp[j] = col_has_hand ? j : leftmost_index_dp[j + 1];
         end
 
-        wire [7:0] leftmost_index;
-        assign leftmost_index = leftmost_index_dp[0];
+        assign leftmost_index = leftmost_index_dp[0];     
+    endgenerate
 
-        
+    // initial begin
+    //     $display("%b", or_reduction_dp);
+    // end
+
+    always_comb begin
+        $display("LEFT: %d", leftmost_index);
+    end
+
+    genvar m, n;
+    generate
+        for (m = 0; m < LENGTH; m++) begin
+            for (n = 0; n < WIDTH; n++) begin
+                always_comb begin
+                    if (n == leftmost_index && init_in) begin
+                        $display("hey?");
+                        strip[m] = filtered[m][n];
+                    end
+                end
+            end
+        end
     endgenerate
 
     // Iterate through column with leftmost index (+ 30) // and return that strip
