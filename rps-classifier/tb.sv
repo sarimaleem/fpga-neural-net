@@ -9,7 +9,7 @@ module tb;
     data_init data_init (clk);
 
     initial begin
-        for (int i = 0; i < 10; i++) begin
+        for (int i = 0; i < 3; i++) begin
             @(posedge clk);
         end
 
