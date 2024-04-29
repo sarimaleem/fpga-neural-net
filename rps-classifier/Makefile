@@ -3,7 +3,7 @@ clean:
 	mkdir obj_dir
 
 build: clean
-	iverilog -g2012 -o obj_dir/test.out *.sv *.svh
+	iverilog -g2012 -o obj_dir/test.out *.sv *.svh &> out.txt
 
 test: build
 	vvp obj_dir/test.out
