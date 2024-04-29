@@ -118,7 +118,7 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : AA11      :        :                   :      
 VCCIO3B                      : AA12      : power  :                   : 3.3V    : 3B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AA13      :        :                   :         : 4A        :                
 VCCPD3B4A                    : AA14      : power  :                   : 3.3V    : 3B, 4A    :                
-gpio_pin[2]                  : AA15      : input  : 3.3-V LVTTL       :         : 4A        : Y              
+byte_input[2]                : AA15      : input  : 3.3-V LVTTL       :         : 4A        : Y              
 VCCIO4A                      : AA16      : power  :                   : 3.3V    : 4A        :                
 GND                          : AA17      : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AA18      :        :                   :         : 4A        :                
@@ -154,7 +154,7 @@ VCC_AUX                      : AC8       : power  :                   : 2.5V    
 VCC_AUX                      : AC21      : power  :                   : 2.5V    :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AC22      :        :                   :         : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AC23      :        :                   :         : 4A        :                
-gpio_pin[1]                  : AC24      : input  : 3.3-V LVTTL       :         : 5A        : Y              
+byte_input[1]                : AC24      : input  : 3.3-V LVTTL       :         : 5A        : Y              
 VCCIO5A                      : AC25      : power  :                   : 3.3V    : 5A        :                
 VREFB5AN0                    : AC26      : power  :                   :         : 5A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AC27      :        :                   :         : 6B        :                
@@ -184,7 +184,7 @@ GND                          : AD22      : gnd    :                   :         
 RESERVED_INPUT_WITH_WEAK_PULLUP : AD23      :        :                   :         : 4A        :                
 VCCPGM                       : AD24      : power  :                   : 1.8V/2.5V/3.0V/3.3V :           :                
 GND                          : AD25      : gnd    :                   :         :           :                
-gpio_pin[3]                  : AD26      : input  : 3.3-V LVTTL       :         : 5A        : Y              
+byte_input[3]                : AD26      : input  : 3.3-V LVTTL       :         : 5A        : Y              
 VCCIO6B_HPS                  : AD27      : power  :                   : 2.5V    : 6B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AD28      :        :                   :         : 6B        :                
 GND                          : AE1       : gnd    :                   :         :           :                
@@ -211,7 +211,7 @@ VCCIO4A                      : AE21      : power  :                   : 3.3V    
 RESERVED_INPUT_WITH_WEAK_PULLUP : AE22      :        :                   :         : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AE23      :        :                   :         : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AE24      :        :                   :         : 4A        :                
-gpio_pin[6]                  : AE25      : input  : 3.3-V LVTTL       :         : 5A        : Y              
+byte_input[6]                : AE25      : input  : 3.3-V LVTTL       :         : 5A        : Y              
 LED[5]                       : AE26      : output : 3.3-V LVTTL       :         : 5A        : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : AE27      :        :                   :         : 6B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AE28      :        :                   :         : 6B        :                
@@ -241,8 +241,8 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : AF23      :        :                   :      
 GND                          : AF24      : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AF25      :        :                   :         : 4A        :                
 LED[4]                       : AF26      : output : 3.3-V LVTTL       :         : 5A        : Y              
-gpio_pin[7]                  : AF27      : input  : 3.3-V LVTTL       :         : 4A        : Y              
-gpio_pin[5]                  : AF28      : input  : 3.3-V LVTTL       :         : 4A        : Y              
+byte_input[7]                : AF27      : input  : 3.3-V LVTTL       :         : 4A        : Y              
+byte_input[5]                : AF28      : input  : 3.3-V LVTTL       :         : 4A        : Y              
 GND                          : AG1       : gnd    :                   :         :           :                
 GND                          : AG2       : gnd    :                   :         :           :                
 GND                          : AG3       : gnd    :                   :         :           :                
@@ -270,7 +270,7 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : AG24      :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : AG25      :        :                   :         : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AG26      :        :                   :         : 4A        :                
 GND                          : AG27      : gnd    :                   :         :           :                
-gpio_pin[4]                  : AG28      : input  : 3.3-V LVTTL       :         : 4A        : Y              
+byte_input[4]                : AG28      : input  : 3.3-V LVTTL       :         : 4A        : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : AH2       :        :                   :         : 3B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AH3       :        :                   :         : 3B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AH4       :        :                   :         : 3B        :                
@@ -687,7 +687,7 @@ GND                          : V5        : gnd    :                   :         
 GND                          : V8        : gnd    :                   :         :           :                
 GND                          : V9        : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : V10       :        :                   :         : 3A        :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : V11       :        :                   :         : 3B        :                
+fpga_clk                     : V11       : input  : 3.3-V LVTTL       :         : 3B        : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : V12       :        :                   :         : 3B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : V13       :        :                   :         : 4A        :                
 GND                          : V14       : gnd    :                   :         :           :                
@@ -739,7 +739,7 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : Y11       :        :                   :      
 GND                          : Y12       : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : Y13       :        :                   :         : 4A        :                
 GND                          : Y14       : gnd    :                   :         :           :                
-gpio_pin[0]                  : Y15       : input  : 3.3-V LVTTL       :         : 4A        : Y              
+byte_input[0]                : Y15       : input  : 3.3-V LVTTL       :         : 4A        : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : Y16       :        :                   :         : 5A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : Y17       :        :                   :         : 5A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : Y18       :        :                   :         : 5A        :                

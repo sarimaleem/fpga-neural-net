@@ -2,52 +2,116 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1100mV 100C Model Setup 'pi_clk'
-Slack : -3.044
-TNS   : -108.534
+Type  : Slow 1100mV 100C Model Setup 'fpga_clk'
+Slack : -7.776
+TNS   : -179.739
 
-Type  : Slow 1100mV 100C Model Hold 'pi_clk'
-Slack : 0.412
+Type  : Slow 1100mV 100C Model Setup 'dbnc_rst'
+Slack : -3.005
+TNS   : -13.425
+
+Type  : Slow 1100mV 100C Model Hold 'fpga_clk'
+Slack : 0.466
 TNS   : 0.000
 
-Type  : Slow 1100mV 100C Model Minimum Pulse Width 'pi_clk'
+Type  : Slow 1100mV 100C Model Hold 'dbnc_rst'
+Slack : 0.561
+TNS   : 0.000
+
+Type  : Slow 1100mV 100C Model Minimum Pulse Width 'fpga_clk'
+Slack : -0.710
+TNS   : -27.883
+
+Type  : Slow 1100mV 100C Model Minimum Pulse Width 'slow_down_clock:slow|clk'
 Slack : -0.538
-TNS   : -34.739
+TNS   : -0.787
 
-Type  : Slow 1100mV -40C Model Setup 'pi_clk'
-Slack : -2.934
-TNS   : -105.269
-
-Type  : Slow 1100mV -40C Model Hold 'pi_clk'
-Slack : 0.433
+Type  : Slow 1100mV 100C Model Minimum Pulse Width 'dbnc_rst'
+Slack : 0.382
 TNS   : 0.000
 
-Type  : Slow 1100mV -40C Model Minimum Pulse Width 'pi_clk'
+Type  : Slow 1100mV -40C Model Setup 'fpga_clk'
+Slack : -8.010
+TNS   : -183.505
+
+Type  : Slow 1100mV -40C Model Setup 'dbnc_rst'
+Slack : -3.267
+TNS   : -14.693
+
+Type  : Slow 1100mV -40C Model Hold 'fpga_clk'
+Slack : 0.472
+TNS   : 0.000
+
+Type  : Slow 1100mV -40C Model Hold 'dbnc_rst'
+Slack : 0.507
+TNS   : 0.000
+
+Type  : Slow 1100mV -40C Model Minimum Pulse Width 'fpga_clk'
+Slack : -0.731
+TNS   : -26.151
+
+Type  : Slow 1100mV -40C Model Minimum Pulse Width 'slow_down_clock:slow|clk'
 Slack : -0.538
-TNS   : -33.021
+TNS   : -0.777
 
-Type  : Fast 1100mV 100C Model Setup 'pi_clk'
-Slack : -0.967
-TNS   : -31.528
-
-Type  : Fast 1100mV 100C Model Hold 'pi_clk'
-Slack : 0.197
+Type  : Slow 1100mV -40C Model Minimum Pulse Width 'dbnc_rst'
+Slack : 0.352
 TNS   : 0.000
 
-Type  : Fast 1100mV 100C Model Minimum Pulse Width 'pi_clk'
-Slack : -0.573
-TNS   : -30.808
+Type  : Fast 1100mV 100C Model Setup 'fpga_clk'
+Slack : -3.876
+TNS   : -74.332
 
-Type  : Fast 1100mV -40C Model Setup 'pi_clk'
-Slack : -0.719
-TNS   : -23.312
+Type  : Fast 1100mV 100C Model Setup 'dbnc_rst'
+Slack : -1.036
+TNS   : -4.647
 
-Type  : Fast 1100mV -40C Model Hold 'pi_clk'
-Slack : 0.181
+Type  : Fast 1100mV 100C Model Hold 'fpga_clk'
+Slack : 0.220
 TNS   : 0.000
 
-Type  : Fast 1100mV -40C Model Minimum Pulse Width 'pi_clk'
-Slack : -0.614
-TNS   : -34.615
+Type  : Fast 1100mV 100C Model Hold 'dbnc_rst'
+Slack : 0.285
+TNS   : 0.000
+
+Type  : Fast 1100mV 100C Model Minimum Pulse Width 'fpga_clk'
+Slack : -0.759
+TNS   : -14.883
+
+Type  : Fast 1100mV 100C Model Minimum Pulse Width 'slow_down_clock:slow|clk'
+Slack : 0.158
+TNS   : 0.000
+
+Type  : Fast 1100mV 100C Model Minimum Pulse Width 'dbnc_rst'
+Slack : 0.417
+TNS   : 0.000
+
+Type  : Fast 1100mV -40C Model Setup 'fpga_clk'
+Slack : -3.364
+TNS   : -62.768
+
+Type  : Fast 1100mV -40C Model Setup 'dbnc_rst'
+Slack : -0.944
+TNS   : -4.278
+
+Type  : Fast 1100mV -40C Model Hold 'fpga_clk'
+Slack : 0.196
+TNS   : 0.000
+
+Type  : Fast 1100mV -40C Model Hold 'dbnc_rst'
+Slack : 0.267
+TNS   : 0.000
+
+Type  : Fast 1100mV -40C Model Minimum Pulse Width 'fpga_clk'
+Slack : -0.810
+TNS   : -19.434
+
+Type  : Fast 1100mV -40C Model Minimum Pulse Width 'slow_down_clock:slow|clk'
+Slack : 0.162
+TNS   : 0.000
+
+Type  : Fast 1100mV -40C Model Minimum Pulse Width 'dbnc_rst'
+Slack : 0.423
+TNS   : 0.000
 
 ------------------------------------------------------------
