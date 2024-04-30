@@ -52,7 +52,7 @@ module classifier (
             end
 
             assign result = num_transitions == 4 ? 2'b10 : (sum_left > LENGTH*WIDTH/50 ? 2'b01 : 2'b00);
-            $display("num transitions: %d, sum left: %d sum: %d\n", num_transitions, sum_left, sum);
+            $display("num transitions: %d, sum: %d sum left: %d leftmost pixel: %d\n", num_transitions, sum, sum_left, leftmost_pixel);
             $display("result: %d", result);
         end
     end
