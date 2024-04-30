@@ -12,7 +12,5 @@ parameter MIN_SATURATION = 25;
 parameter MIN_VALUE = 25;
 
 parameter MAX_HUE = 43;
-parameter MAX_SATURATION = 255;
-parameter MAX_VALUE = 255;
 
 `endif
