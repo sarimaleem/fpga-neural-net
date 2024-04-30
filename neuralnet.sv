@@ -1,44 +1,45 @@
 module neuralnet (
     input wire fpga_clk, // fpga clk, runs 50 mhz I think
     input wire pi_clk, // Raspberry Pi clock
-    input wire [7:0] byte_input, // GPIO pin input
+    input wire data_in, // GPIO pin input, one bit
     input wire rst, // Active high reset
     input wire write_enable, // Enable writing to memory
-    input wire [1:0] buttons, // Button inputs to select memory region
+    input wire [3:0] switches, // Button inputs to select memory region
     output logic [5:0] LED // LED output
 );
 
     parameter int HEIGHT = 20;
     parameter int WIDTH = 30;
     parameter int DEPTH = 3; // Depth of 3 for RGB color channels
+    parameter int BITS = 8;
 
     logic [7:0] image [HEIGHT * WIDTH * DEPTH]; // 3D array to store image data
     logic [31:0] count;
-    logic [31:0] rst_cnt;
-
     logic slow_clk;
-
+    
     // dbnc stuff
-    logic [7:0] dbnc_byte;
+    logic dbnc_bit;
     logic dbnc_rst;
     logic dbnc_write_enable;
     logic dbnc_pi_clk;
 
+    logic [7:0] bit_buffer;
+    logic [31:0] bit_cnt;
+
     initial begin
         slow_clk = 0;
         count = 0;
-        rst_cnt = 0;
-        LED = 0;
-        dbnc_byte = 0;
+        dbnc_bit = 0;
         dbnc_rst = 0;
         dbnc_write_enable = 0;
-        rst_cnt = 0;
+        bit_cnt = 0;
+        bit_buffer = 0;
     end
 
     slow_down_clock slow(fpga_clk, slow_clk);
     
     always @(posedge slow_clk) begin
-        dbnc_byte = byte_input;
+        dbnc_bit = data_in;
         dbnc_rst = rst;
         dbnc_write_enable = write_enable;
         dbnc_pi_clk = pi_clk;
@@ -46,23 +47,88 @@ module neuralnet (
 
     always @(posedge dbnc_pi_clk or posedge dbnc_rst) begin
         if (dbnc_rst) begin
-            // Reset the count and clear the image storage
             count = 0;
-            rst_cnt = rst_cnt + 1;
+            bit_buffer = 0;
+            bit_cnt = 0;
             for (int i = 0; i < HEIGHT * WIDTH * DEPTH; i++) begin
                 image[i] = 8'd0;
             end
-        end 
-        else if (dbnc_write_enable && count < HEIGHT*WIDTH*DEPTH) begin
-            image[count] = dbnc_byte;
-            count = count + 1;
+        end else if (dbnc_write_enable) begin
+            if (bit_cnt < 7) begin
+                // Shift bit into buffer from the MSB to the LSB
+                bit_buffer[7 - bit_cnt] = dbnc_bit;  // Adjust index for MSB first
+                bit_cnt = bit_cnt + 1;
+            end else begin
+                // Store the last bit in the LSB, complete the byte and store it
+                bit_buffer[7 - bit_cnt] = dbnc_bit;
+                if (count < HEIGHT*WIDTH*DEPTH) begin
+                    image[count] = bit_buffer;
+                    count = count + 1;
+                end
+                // Reset buffer and bit counter
+                bit_buffer = 0;
+                bit_cnt = 0;
+            end
         end
     end
 
-    // assign LED = image[10][5:0];
-    // assign LED[0] = slow_clk;
-    // assign LED = 6'b101010;
-    assign LED = rst_cnt[5:0];
+    // assign LED[3:0] = switches;
+
+    always_comb begin
+        case (switches) 
+            0: begin
+                LED[5:0] = image[0][5:0];
+            end
+            1: begin
+                LED[5:0] = image[1][5:0];
+            end
+            2: begin
+                LED[5:0] = image[2][5:0];
+            end
+            3: begin
+                LED[5:0] = image[3][5:0];
+            end
+            4: begin
+                LED[5:0] = image[100][5:0];
+            end
+            5: begin
+                LED[5:0] = image[300][5:0];
+            end
+            6: begin
+                LED[5:0] = image[400][5:0];
+            end
+            7: begin
+                LED[5:0] = image[500][5:0];
+            end
+            8: begin
+                LED[5:0] = image[600][5:0];
+            end
+            9: begin
+                LED[5:0] = image[700][5:0];
+            end
+            10: begin
+                LED[5:0] = image[800][5:0];
+            end
+            11: begin
+                LED[5:0] = image[900][5:0];
+            end
+            12: begin
+                LED[5:0] = image[1000][5:0];
+            end
+            13: begin
+                LED[5:0] = image[1798][5:0];
+            end
+            14: begin
+                LED[5:0] = image[1799][5:0];
+            end
+            15: begin
+                LED[5:0] = image[1799][5:0];
+            end
+            default begin
+                LED[5:0] = 0;
+            end
+        endcase
+    end
 endmodule
 
 
@@ -76,7 +142,7 @@ module slow_down_clock(input fpga_clk, output slow_clk);
     
     always @(posedge fpga_clk) begin 
         counter++;
-        if(counter == 10000) begin
+        if(counter == 1000) begin
             clk = ~clk;
             counter = 0;
         end
@@ -91,19 +157,19 @@ module classifier (
     input logic [LENGTH-1:0][WIDTH-1:0] image
 );
 
-parameter LENGTH = 20;
-parameter WIDTH = 30;
+    parameter LENGTH = 20;
+    parameter WIDTH = 30;
 
-parameter SHIFT = LENGTH / 10;
-parameter LEFT = LENGTH * 4 / 10;
+    parameter SHIFT = LENGTH / 10;
+    parameter LEFT = LENGTH * 4 / 10;
 
-parameter LOWER_GREEN_ONE = 18;
-parameter LOWER_GREEN_TWO = 25;
-parameter LOWER_GREEN_THREE = 25;
+    parameter LOWER_GREEN_ONE = 18;
+    parameter LOWER_GREEN_TWO = 25;
+    parameter LOWER_GREEN_THREE = 25;
 
-parameter UPPER_GREEN_ONE = 43;
-parameter UPPER_GREEN_TWO = 255;
-parameter UPPER_GREEN_THREE = 255;
+    parameter UPPER_GREEN_ONE = 43;
+    parameter UPPER_GREEN_TWO = 255;
+    parameter UPPER_GREEN_THREE = 255;
 
 
     logic [31:0] sum;

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for neuralnet
-Mon Apr 29 14:42:03 2024
+Mon Apr 29 23:51:06 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -13,8 +13,8 @@ Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. User-Specified and Inferred Latches
-  9. General Register Statistics
+  8. General Register Statistics
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
  10. Parameter Settings for User Entity Instance: Top-level Entity: |neuralnet
  11. Post-Synthesis Netlist Statistics for Top Partition
  12. Elapsed Time Per Partition
@@ -45,14 +45,14 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Apr 29 14:42:03 2024          ;
+; Analysis & Synthesis Status     ; Successful - Mon Apr 29 23:51:06 2024          ;
 ; Quartus Prime Version           ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                   ; neuralnet                                      ;
 ; Top-level Entity Name           ; neuralnet                                      ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 34                                             ;
-; Total pins                      ; 20                                             ;
+; Total registers                 ; 197                                            ;
+; Total pins                      ; 15                                             ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 0                                              ;
 ; Total DSP Blocks                ; 0                                              ;
@@ -178,31 +178,31 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------+-----------------+------------------------------+-----------------------------------------------+---------+
 
 
-+--------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                  ;
-+---------------------------------------------+----------------+
-; Resource                                    ; Usage          ;
-+---------------------------------------------+----------------+
-; Estimate of Logic utilization (ALMs needed) ; 32             ;
-;                                             ;                ;
-; Combinational ALUT usage for logic          ; 54             ;
-;     -- 7 input functions                    ; 0              ;
-;     -- 6 input functions                    ; 9              ;
-;     -- 5 input functions                    ; 0              ;
-;     -- 4 input functions                    ; 0              ;
-;     -- <=3 input functions                  ; 45             ;
-;                                             ;                ;
-; Dedicated logic registers                   ; 34             ;
-;                                             ;                ;
-; I/O pins                                    ; 20             ;
-;                                             ;                ;
-; Total DSP Blocks                            ; 0              ;
-;                                             ;                ;
-; Maximum fan-out node                        ; fpga_clk~input ;
-; Maximum fan-out                             ; 33             ;
-; Total fan-out                               ; 275            ;
-; Average fan-out                             ; 2.15           ;
-+---------------------------------------------+----------------+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimate of Logic utilization (ALMs needed) ; 158         ;
+;                                             ;             ;
+; Combinational ALUT usage for logic          ; 234         ;
+;     -- 7 input functions                    ; 0           ;
+;     -- 6 input functions                    ; 70          ;
+;     -- 5 input functions                    ; 16          ;
+;     -- 4 input functions                    ; 9           ;
+;     -- <=3 input functions                  ; 139         ;
+;                                             ;             ;
+; Dedicated logic registers                   ; 197         ;
+;                                             ;             ;
+; I/O pins                                    ; 15          ;
+;                                             ;             ;
+; Total DSP Blocks                            ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; dbnc_pi_clk ;
+; Maximum fan-out                             ; 160         ;
+; Total fan-out                               ; 1623        ;
+; Average fan-out                             ; 3.52        ;
++---------------------------------------------+-------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -210,26 +210,10 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name             ; Entity Name     ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------+-----------------+--------------+
-; |neuralnet                 ; 54 (11)             ; 34 (1)                    ; 0                 ; 0          ; 20   ; 0            ; |neuralnet                      ; neuralnet       ; work         ;
+; |neuralnet                 ; 234 (191)           ; 197 (164)                 ; 0                 ; 0          ; 15   ; 0            ; |neuralnet                      ; neuralnet       ; work         ;
 ;    |slow_down_clock:slow|  ; 43 (43)             ; 33 (33)                   ; 0                 ; 0          ; 0    ; 0            ; |neuralnet|slow_down_clock:slow ; slow_down_clock ; work         ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+---------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                               ;
-+----------------------------------------------------+---------------------+------------------------+
-; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
-+----------------------------------------------------+---------------------+------------------------+
-; rst_cnt[0]                                         ; dbnc_rst            ; yes                    ;
-; rst_cnt[1]                                         ; dbnc_rst            ; yes                    ;
-; rst_cnt[2]                                         ; dbnc_rst            ; yes                    ;
-; rst_cnt[3]                                         ; dbnc_rst            ; yes                    ;
-; rst_cnt[4]                                         ; dbnc_rst            ; yes                    ;
-; rst_cnt[5]                                         ; dbnc_rst            ; yes                    ;
-; Number of user-specified and inferred latches = 6  ;                     ;                        ;
-+----------------------------------------------------+---------------------+------------------------+
-Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +------------------------------------------------------+
@@ -237,14 +221,23 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 34    ;
-; Number of registers using Synchronous Clear  ; 32    ;
+; Total registers                              ; 197   ;
+; Number of registers using Synchronous Clear  ; 70    ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Clear ; 160   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 160   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 16:1               ; 6 bits    ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; No         ; |neuralnet|Mux0            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 
 
 +---------------------------------------------------------------------------+
@@ -255,6 +248,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; HEIGHT         ; 20    ; Signed Integer                                   ;
 ; WIDTH          ; 30    ; Signed Integer                                   ;
 ; DEPTH          ; 3     ; Signed Integer                                   ;
+; BITS           ; 8     ; Signed Integer                                   ;
 +----------------+-------+--------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -264,21 +258,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 34                          ;
+; arriav_ff             ; 197                         ;
+;     ENA CLR           ; 122                         ;
+;     ENA CLR SCLR      ; 38                          ;
 ;     SCLR              ; 32                          ;
-;     plain             ; 2                           ;
-; arriav_lcell_comb     ; 54                          ;
-;     arith             ; 37                          ;
-;         1 data inputs ; 36                          ;
-;         2 data inputs ; 1                           ;
-;     normal            ; 17                          ;
+;     plain             ; 5                           ;
+; arriav_lcell_comb     ; 234                         ;
+;     arith             ; 123                         ;
+;         1 data inputs ; 121                         ;
 ;         2 data inputs ; 2                           ;
-;         3 data inputs ; 6                           ;
-;         6 data inputs ; 9                           ;
-; boundary_port         ; 20                          ;
+;     normal            ; 111                         ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 8                           ;
+;         3 data inputs ; 7                           ;
+;         4 data inputs ; 9                           ;
+;         5 data inputs ; 16                          ;
+;         6 data inputs ; 70                          ;
+; boundary_port         ; 15                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 6.60                        ;
-; Average LUT depth     ; 4.83                        ;
+; Max LUT depth         ; 6.70                        ;
+; Average LUT depth     ; 3.92                        ;
 +-----------------------+-----------------------------+
 
 
@@ -287,7 +286,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -297,74 +296,27 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Mon Apr 29 14:41:54 2024
+    Info: Processing started: Mon Apr 29 23:50:55 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off neuralnet -c neuralnet
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 3 design units, including 3 entities, in source file neuralnet.sv
     Info (12023): Found entity 1: neuralnet File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 1
-    Info (12023): Found entity 2: slow_down_clock File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 69
-    Info (12023): Found entity 3: classifier File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 88
+    Info (12023): Found entity 2: slow_down_clock File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 135
+    Info (12023): Found entity 3: classifier File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 154
 Info (12127): Elaborating entity "neuralnet" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at neuralnet.sv(15): object "image" assigned a value but never read File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 15
-Warning (10240): Verilog HDL Always Construct warning at neuralnet.sv(47): inferring latch(es) for variable "rst_cnt", which holds its previous value in one or more paths through the always construct File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 47
-Info (10041): Inferred latch for "rst_cnt[0]" at neuralnet.sv(56) File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 56
-Info (10041): Inferred latch for "rst_cnt[1]" at neuralnet.sv(56) File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 56
-Info (10041): Inferred latch for "rst_cnt[2]" at neuralnet.sv(56) File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 56
-Info (10041): Inferred latch for "rst_cnt[3]" at neuralnet.sv(56) File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 56
-Info (10041): Inferred latch for "rst_cnt[4]" at neuralnet.sv(56) File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 56
-Info (10041): Inferred latch for "rst_cnt[5]" at neuralnet.sv(56) File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 56
-Info (10041): Inferred latch for "rst_cnt[6]" at neuralnet.sv(56) File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 56
-Info (10041): Inferred latch for "rst_cnt[7]" at neuralnet.sv(56) File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 56
-Info (10041): Inferred latch for "rst_cnt[8]" at neuralnet.sv(56) File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 56
-Info (10041): Inferred latch for "rst_cnt[9]" at neuralnet.sv(56) File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 56
-Info (10041): Inferred latch for "rst_cnt[10]" at neuralnet.sv(56) File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 56
-Info (10041): Inferred latch for "rst_cnt[11]" at neuralnet.sv(56) File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 56
-Info (10041): Inferred latch for "rst_cnt[12]" at neuralnet.sv(56) File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 56
-Info (10041): Inferred latch for "rst_cnt[13]" at neuralnet.sv(56) File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 56
-Info (10041): Inferred latch for "rst_cnt[14]" at neuralnet.sv(56) File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 56
-Info (10041): Inferred latch for "rst_cnt[15]" at neuralnet.sv(56) File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 56
-Info (10041): Inferred latch for "rst_cnt[16]" at neuralnet.sv(56) File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 56
-Info (10041): Inferred latch for "rst_cnt[17]" at neuralnet.sv(56) File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 56
-Info (10041): Inferred latch for "rst_cnt[18]" at neuralnet.sv(56) File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 56
-Info (10041): Inferred latch for "rst_cnt[19]" at neuralnet.sv(56) File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 56
-Info (10041): Inferred latch for "rst_cnt[20]" at neuralnet.sv(56) File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 56
-Info (10041): Inferred latch for "rst_cnt[21]" at neuralnet.sv(56) File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 56
-Info (10041): Inferred latch for "rst_cnt[22]" at neuralnet.sv(56) File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 56
-Info (10041): Inferred latch for "rst_cnt[23]" at neuralnet.sv(56) File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 56
-Info (10041): Inferred latch for "rst_cnt[24]" at neuralnet.sv(56) File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 56
-Info (10041): Inferred latch for "rst_cnt[25]" at neuralnet.sv(56) File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 56
-Info (10041): Inferred latch for "rst_cnt[26]" at neuralnet.sv(56) File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 56
-Info (10041): Inferred latch for "rst_cnt[27]" at neuralnet.sv(56) File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 56
-Info (10041): Inferred latch for "rst_cnt[28]" at neuralnet.sv(56) File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 56
-Info (10041): Inferred latch for "rst_cnt[29]" at neuralnet.sv(56) File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 56
-Info (10041): Inferred latch for "rst_cnt[30]" at neuralnet.sv(56) File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 56
-Info (10041): Inferred latch for "rst_cnt[31]" at neuralnet.sv(56) File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 56
-Info (12128): Elaborating entity "slow_down_clock" for hierarchy "slow_down_clock:slow" File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 38
+Info (12128): Elaborating entity "slow_down_clock" for hierarchy "slow_down_clock:slow" File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 39
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 12 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "pi_clk" File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 3
-    Warning (15610): No output dependent on input pin "byte_input[0]" File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 4
-    Warning (15610): No output dependent on input pin "byte_input[1]" File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 4
-    Warning (15610): No output dependent on input pin "byte_input[2]" File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 4
-    Warning (15610): No output dependent on input pin "byte_input[3]" File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 4
-    Warning (15610): No output dependent on input pin "byte_input[4]" File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 4
-    Warning (15610): No output dependent on input pin "byte_input[5]" File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 4
-    Warning (15610): No output dependent on input pin "byte_input[6]" File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 4
-    Warning (15610): No output dependent on input pin "byte_input[7]" File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 4
-    Warning (15610): No output dependent on input pin "write_enable" File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 6
-    Warning (15610): No output dependent on input pin "buttons[0]" File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 7
-    Warning (15610): No output dependent on input pin "buttons[1]" File: /home/sarim/arch/fpga-neural-net/neuralnet.sv Line: 7
-Info (21057): Implemented 107 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 14 input pins
+Info (21057): Implemented 381 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 9 input pins
     Info (21059): Implemented 6 output pins
-    Info (21061): Implemented 87 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 16 warnings
-    Info: Peak virtual memory: 468 megabytes
-    Info: Processing ended: Mon Apr 29 14:42:03 2024
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:24
+    Info (21061): Implemented 366 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 490 megabytes
+    Info: Processing ended: Mon Apr 29 23:51:06 2024
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:25
 
 
