@@ -1,4 +1,4 @@
-tb.o: ../tb.cpp Vclassifier_tb.h \
+tb.o: ../tb.cpp Vdata_init.h \
   /usr/local/Cellar/verilator/5.024/share/verilator/include/verilated.h \
   /usr/local/Cellar/verilator/5.024/share/verilator/include/verilatedos.h \
   /usr/local/Cellar/verilator/5.024/share/verilator/include/verilated_config.h \

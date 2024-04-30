@@ -1,4 +1,4 @@
-#include "Vclassifier_tb.h"
+#include "Vdata_init.h"
 #include "svdpi.h"
 #include "verilated.h"
 #include <inttypes.h>
@@ -13,7 +13,7 @@ using namespace std;
 VerilatedContext *contextp;
 
 bool run_classifier() {
-    auto *dut = new Vclassifier_tb{contextp};
+    auto *dut = new Vdata_init{contextp};
 
     // each iteration flips clock edge
     for (int iter = 0; iter < NUM_CYCLES; iter++) {

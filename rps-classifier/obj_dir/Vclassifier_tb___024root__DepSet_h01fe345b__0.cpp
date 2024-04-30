@@ -5,44 +5,6 @@
 #include "Vclassifier_tb__pch.h"
 #include "Vclassifier_tb___024root.h"
 
-VL_ATTR_COLD void Vclassifier_tb___024root___eval_initial__TOP(Vclassifier_tb___024root* vlSelf);
-VlCoroutine Vclassifier_tb___024root___eval_initial__TOP__Vtiming__0(Vclassifier_tb___024root* vlSelf);
-
-void Vclassifier_tb___024root___eval_initial(Vclassifier_tb___024root* vlSelf) {
-    (void)vlSelf;  // Prevent unused variable warning
-    Vclassifier_tb__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vclassifier_tb___024root___eval_initial\n"); );
-    // Body
-    Vclassifier_tb___024root___eval_initial__TOP(vlSelf);
-    Vclassifier_tb___024root___eval_initial__TOP__Vtiming__0(vlSelf);
-    vlSelf->__Vtrigprevexpr___TOP__classifier_tb__DOT__data_init__DOT__init_in__0 
-        = vlSelf->classifier_tb__DOT__data_init__DOT__init_in;
-    vlSelf->__Vtrigprevexpr___TOP__clk__0 = vlSelf->clk;
-}
-
-VL_INLINE_OPT VlCoroutine Vclassifier_tb___024root___eval_initial__TOP__Vtiming__0(Vclassifier_tb___024root* vlSelf) {
-    (void)vlSelf;  // Prevent unused variable warning
-    Vclassifier_tb__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vclassifier_tb___024root___eval_initial__TOP__Vtiming__0\n"); );
-    // Body
-    co_await vlSelf->__VtrigSched_hf405d34a__0.trigger(0U, 
-                                                       nullptr, 
-                                                       "@(posedge clk)", 
-                                                       "tb.sv", 
-                                                       9);
-    co_await vlSelf->__VtrigSched_hf405d34a__0.trigger(0U, 
-                                                       nullptr, 
-                                                       "@(posedge clk)", 
-                                                       "tb.sv", 
-                                                       9);
-    co_await vlSelf->__VtrigSched_hf405d34a__0.trigger(0U, 
-                                                       nullptr, 
-                                                       "@(posedge clk)", 
-                                                       "tb.sv", 
-                                                       9);
-    VL_FINISH_MT("tb.sv", 12, "");
-}
-
 void Vclassifier_tb___024root___eval_act(Vclassifier_tb___024root* vlSelf) {
     (void)vlSelf;  // Prevent unused variable warning
     Vclassifier_tb__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;

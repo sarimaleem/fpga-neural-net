@@ -8,7 +8,6 @@ Vclassifier_tb___024root__DepSet_h01fe345b__0__Slow.o: \
   /Users/justinmilushev/Desktop/CS350C/FinalProject/fpga-neural-net/rps-classifier/obj_dir/Vclassifier_tb__Syms.h \
   /Users/justinmilushev/Desktop/CS350C/FinalProject/fpga-neural-net/rps-classifier/obj_dir/Vclassifier_tb.h \
   /Users/justinmilushev/Desktop/CS350C/FinalProject/fpga-neural-net/rps-classifier/obj_dir/Vclassifier_tb___024root.h \
-  /usr/local/Cellar/verilator/5.024/share/verilator/include/verilated_timing.h \
   /Users/justinmilushev/Desktop/CS350C/FinalProject/fpga-neural-net/rps-classifier/obj_dir/Vclassifier_tb___024unit.h \
   Vclassifier_tb___024root__DepSet_h01fe345b__0__Slow.cpp \
   Vclassifier_tb__pch.h Vclassifier_tb___024root.h

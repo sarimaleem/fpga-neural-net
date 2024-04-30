@@ -4,10 +4,10 @@ lint:
 	verilator --lint-only --timing ${SV_FILES}
 
 build:
-	verilator --cc --exe --build --timing -j 0 --top-module classifier_tb ${SV_FILES} tb.cpp 
+	verilator --cc --exe --build --timing -j 0 --top-module data_init ${SV_FILES} tb.cpp 
 
 test: build
-	obj_dir/Vclassifier_tb
+	obj_dir/Vdata_init
 
 # clean:
 # 	rm -r obj_dir

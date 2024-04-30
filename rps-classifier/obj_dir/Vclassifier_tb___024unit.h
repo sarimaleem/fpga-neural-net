@@ -6,7 +6,6 @@
 #define VERILATED_VCLASSIFIER_TB___024UNIT_H_  // guard
 
 #include "verilated.h"
-#include "verilated_timing.h"
 
 
 class Vclassifier_tb__Syms;

@@ -5,7 +5,7 @@ parameter LENGTH = 20;
 parameter WIDTH = 30;
 
 parameter SHIFT = LENGTH / 10;
-parameter LEFT = LENGTH * 4 / 10;
+parameter LEFT = LENGTH * 4 / 10 - 1;
 
 parameter LOWER_GREEN_ONE = 18;
 parameter LOWER_GREEN_TWO = 25;

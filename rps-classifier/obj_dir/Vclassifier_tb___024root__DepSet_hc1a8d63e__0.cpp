@@ -17,11 +17,8 @@ void Vclassifier_tb___024root___eval_triggers__act(Vclassifier_tb___024root* vlS
     // Body
     vlSelf->__VactTriggered.set(0U, ((IData)(vlSelf->classifier_tb__DOT__data_init__DOT__init_in) 
                                      != (IData)(vlSelf->__Vtrigprevexpr___TOP__classifier_tb__DOT__data_init__DOT__init_in__0)));
-    vlSelf->__VactTriggered.set(1U, ((IData)(vlSelf->clk) 
-                                     & (~ (IData)(vlSelf->__Vtrigprevexpr___TOP__clk__0))));
     vlSelf->__Vtrigprevexpr___TOP__classifier_tb__DOT__data_init__DOT__init_in__0 
         = vlSelf->classifier_tb__DOT__data_init__DOT__init_in;
-    vlSelf->__Vtrigprevexpr___TOP__clk__0 = vlSelf->clk;
     if (VL_UNLIKELY((1U & (~ (IData)(vlSelf->__VactDidInit))))) {
         vlSelf->__VactDidInit = 1U;
         vlSelf->__VactTriggered.set(0U, 1U);

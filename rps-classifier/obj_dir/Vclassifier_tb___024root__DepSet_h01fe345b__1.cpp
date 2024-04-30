@@ -5,26 +5,6 @@
 #include "Vclassifier_tb__pch.h"
 #include "Vclassifier_tb___024root.h"
 
-void Vclassifier_tb___024root___timing_commit(Vclassifier_tb___024root* vlSelf) {
-    (void)vlSelf;  // Prevent unused variable warning
-    Vclassifier_tb__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vclassifier_tb___024root___timing_commit\n"); );
-    // Body
-    if ((! (2ULL & vlSelf->__VactTriggered.word(0U)))) {
-        vlSelf->__VtrigSched_hf405d34a__0.commit("@(posedge clk)");
-    }
-}
-
-void Vclassifier_tb___024root___timing_resume(Vclassifier_tb___024root* vlSelf) {
-    (void)vlSelf;  // Prevent unused variable warning
-    Vclassifier_tb__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vclassifier_tb___024root___timing_resume\n"); );
-    // Body
-    if ((2ULL & vlSelf->__VactTriggered.word(0U))) {
-        vlSelf->__VtrigSched_hf405d34a__0.resume("@(posedge clk)");
-    }
-}
-
 void Vclassifier_tb___024root___eval_triggers__act(Vclassifier_tb___024root* vlSelf);
 void Vclassifier_tb___024root___eval_act(Vclassifier_tb___024root* vlSelf);
 
@@ -33,16 +13,14 @@ bool Vclassifier_tb___024root___eval_phase__act(Vclassifier_tb___024root* vlSelf
     Vclassifier_tb__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vclassifier_tb___024root___eval_phase__act\n"); );
     // Init
-    VlTriggerVec<2> __VpreTriggered;
+    VlTriggerVec<1> __VpreTriggered;
     CData/*0:0*/ __VactExecute;
     // Body
     Vclassifier_tb___024root___eval_triggers__act(vlSelf);
-    Vclassifier_tb___024root___timing_commit(vlSelf);
     __VactExecute = vlSelf->__VactTriggered.any();
     if (__VactExecute) {
         __VpreTriggered.andNot(vlSelf->__VactTriggered, vlSelf->__VnbaTriggered);
         vlSelf->__VnbaTriggered.thisOr(vlSelf->__VactTriggered);
-        Vclassifier_tb___024root___timing_resume(vlSelf);
         Vclassifier_tb___024root___eval_act(vlSelf);
     }
     return (__VactExecute);

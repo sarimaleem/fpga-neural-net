@@ -24,14 +24,14 @@ module classifier (
             // Compute total pixels
             for (int i = 0; i < LENGTH; i++) begin
                 for (int j = 0; j < WIDTH; j++) begin
-                    sum += {{31{1'b0}}, init_in & image[i][j]};
+                    sum += {{31{1'b0}}, image[i][j]};
                 end
             end
 
             // Compute total left pixels
             for (int i = 0; i < LENGTH; i++) begin
                 for (int j = 0; j < LEFT; j++) begin
-                    sum += {{31{1'b0}}, init_in & image[i][j]};
+                    sum_left += {{31{1'b0}}, image[i][j]};
                 end
             end
 
@@ -45,13 +45,14 @@ module classifier (
             end
 
             // Compute number of transitions
-            for (int i = 0; i < LENGTH - 2; i++) begin
-                if (image[i][leftmost_pixel] != image[i][leftmost_pixel + SHIFT]) begin
+            for (int i = 0; i < LENGTH - 1; i++) begin
+                if (image[i][leftmost_pixel + SHIFT] != image[i + 1][leftmost_pixel + SHIFT]) begin
                     num_transitions++;
                 end
             end
 
-            assign result = num_transitions == 4 ? 2'b10 : (sum_left > 1200 ? 2'b01 : 2'b00);
+            assign result = num_transitions == 4 ? 2'b10 : (sum_left > LENGTH*WIDTH/50 ? 2'b01 : 2'b00);
+            $display("num transitions: %d, sum left: %d sum: %d\n", num_transitions, sum_left, sum);
             $display("result: %d", result);
         end
     end
