@@ -1,5 +1,5 @@
 Timing Analyzer report for neuralnet
-Mon Apr 29 23:52:02 2024
+Tue Apr 30 15:21:53 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -103,14 +103,14 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.24        ;
+; Average used               ; 1.12        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   8.1%      ;
-;     Processor 3            ;   8.0%      ;
-;     Processor 4            ;   8.0%      ;
+;     Processor 2            ;   4.1%      ;
+;     Processor 3            ;   3.9%      ;
+;     Processor 4            ;   3.9%      ;
 +----------------------------+-------------+
 
 
@@ -119,7 +119,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------+--------+--------------------------+
 ; SDC File Path ; Status ; Read at                  ;
 +---------------+--------+--------------------------+
-; neuralnet.sdc ; OK     ; Mon Apr 29 23:51:57 2024 ;
+; neuralnet.sdc ; OK     ; Tue Apr 30 15:21:49 2024 ;
 +---------------+--------+--------------------------+
 
 
@@ -139,8 +139,8 @@ https://fpgasoftware.intel.com/eula.
 +------------+-----------------+-------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name  ; Note ;
 +------------+-----------------+-------------+------+
-; 118.92 MHz ; 118.92 MHz      ; fpga_clk    ;      ;
-; 143.29 MHz ; 143.29 MHz      ; dbnc_pi_clk ;      ;
+; 112.78 MHz ; 112.78 MHz      ; fpga_clk    ;      ;
+; 184.26 MHz ; 184.26 MHz      ; dbnc_pi_clk ;      ;
 +------------+-----------------+-------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -156,8 +156,8 @@ HTML report is unavailable in plain text report export.
 +-------------+--------+---------------+
 ; Clock       ; Slack  ; End Point TNS ;
 +-------------+--------+---------------+
-; fpga_clk    ; -7.409 ; -172.917      ;
-; dbnc_pi_clk ; -5.979 ; -801.073      ;
+; fpga_clk    ; -7.867 ; -177.633      ;
+; dbnc_pi_clk ; -5.114 ; -165.981      ;
 +-------------+--------+---------------+
 
 
@@ -166,8 +166,8 @@ HTML report is unavailable in plain text report export.
 +-------------+-------+---------------+
 ; Clock       ; Slack ; End Point TNS ;
 +-------------+-------+---------------+
-; fpga_clk    ; 0.434 ; 0.000         ;
-; dbnc_pi_clk ; 0.494 ; 0.000         ;
+; fpga_clk    ; 0.440 ; 0.000         ;
+; dbnc_pi_clk ; 0.766 ; 0.000         ;
 +-------------+-------+---------------+
 
 
@@ -176,7 +176,7 @@ HTML report is unavailable in plain text report export.
 +-------------+--------+------------------+
 ; Clock       ; Slack  ; End Point TNS    ;
 +-------------+--------+------------------+
-; dbnc_pi_clk ; -2.655 ; -382.938         ;
+; dbnc_pi_clk ; -2.678 ; -113.724         ;
 +-------------+--------+------------------+
 
 
@@ -185,7 +185,7 @@ HTML report is unavailable in plain text report export.
 +-------------+-------+------------------+
 ; Clock       ; Slack ; End Point TNS    ;
 +-------------+-------+------------------+
-; dbnc_pi_clk ; 1.068 ; 0.000            ;
+; dbnc_pi_clk ; 1.625 ; 0.000            ;
 +-------------+-------+------------------+
 
 
@@ -194,9 +194,9 @@ HTML report is unavailable in plain text report export.
 +--------------------------+--------+----------------+
 ; Clock                    ; Slack  ; End Point TNS  ;
 +--------------------------+--------+----------------+
-; fpga_clk                 ; -0.758 ; -28.179        ;
-; dbnc_pi_clk              ; -0.538 ; -130.766       ;
-; slow_down_clock:slow|clk ; -0.538 ; -3.498         ;
+; fpga_clk                 ; -0.692 ; -27.446        ;
+; slow_down_clock:slow|clk ; -0.543 ; -4.285         ;
+; dbnc_pi_clk              ; -0.538 ; -34.579        ;
 +--------------------------+--------+----------------+
 
 
@@ -211,8 +211,8 @@ No synchronizer chains to report.
 +------------+-----------------+-------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name  ; Note ;
 +------------+-----------------+-------------+------+
-; 115.78 MHz ; 115.78 MHz      ; fpga_clk    ;      ;
-; 134.35 MHz ; 134.35 MHz      ; dbnc_pi_clk ;      ;
+; 108.52 MHz ; 108.52 MHz      ; fpga_clk    ;      ;
+; 178.86 MHz ; 178.86 MHz      ; dbnc_pi_clk ;      ;
 +------------+-----------------+-------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -222,8 +222,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------+--------+---------------+
 ; Clock       ; Slack  ; End Point TNS ;
 +-------------+--------+---------------+
-; fpga_clk    ; -7.637 ; -175.885      ;
-; dbnc_pi_clk ; -6.443 ; -836.657      ;
+; fpga_clk    ; -8.215 ; -181.316      ;
+; dbnc_pi_clk ; -5.186 ; -159.944      ;
 +-------------+--------+---------------+
 
 
@@ -232,8 +232,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------+-------+---------------+
 ; Clock       ; Slack ; End Point TNS ;
 +-------------+-------+---------------+
-; fpga_clk    ; 0.452 ; 0.000         ;
-; dbnc_pi_clk ; 0.561 ; 0.000         ;
+; fpga_clk    ; 0.459 ; 0.000         ;
+; dbnc_pi_clk ; 0.770 ; 0.000         ;
 +-------------+-------+---------------+
 
 
@@ -242,7 +242,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------+--------+------------------+
 ; Clock       ; Slack  ; End Point TNS    ;
 +-------------+--------+------------------+
-; dbnc_pi_clk ; -2.464 ; -346.493         ;
+; dbnc_pi_clk ; -2.427 ; -103.013         ;
 +-------------+--------+------------------+
 
 
@@ -251,7 +251,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------+-------+------------------+
 ; Clock       ; Slack ; End Point TNS    ;
 +-------------+-------+------------------+
-; dbnc_pi_clk ; 0.960 ; 0.000            ;
+; dbnc_pi_clk ; 1.476 ; 0.000            ;
 +-------------+-------+------------------+
 
 
@@ -260,9 +260,9 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------------------+--------+----------------+
 ; Clock                    ; Slack  ; End Point TNS  ;
 +--------------------------+--------+----------------+
-; fpga_clk                 ; -0.764 ; -26.187        ;
-; dbnc_pi_clk              ; -0.538 ; -129.709       ;
-; slow_down_clock:slow|clk ; -0.538 ; -3.514         ;
+; fpga_clk                 ; -0.699 ; -26.088        ;
+; slow_down_clock:slow|clk ; -0.547 ; -4.286         ;
+; dbnc_pi_clk              ; -0.538 ; -34.240        ;
 +--------------------------+--------+----------------+
 
 
@@ -277,8 +277,8 @@ No synchronizer chains to report.
 +-------------+--------+---------------+
 ; Clock       ; Slack  ; End Point TNS ;
 +-------------+--------+---------------+
-; fpga_clk    ; -3.788 ; -71.862       ;
-; dbnc_pi_clk ; -2.596 ; -344.821      ;
+; fpga_clk    ; -3.914 ; -72.152       ;
+; dbnc_pi_clk ; -2.366 ; -78.436       ;
 +-------------+--------+---------------+
 
 
@@ -287,8 +287,8 @@ No synchronizer chains to report.
 +-------------+-------+---------------+
 ; Clock       ; Slack ; End Point TNS ;
 +-------------+-------+---------------+
-; dbnc_pi_clk ; 0.156 ; 0.000         ;
-; fpga_clk    ; 0.203 ; 0.000         ;
+; fpga_clk    ; 0.205 ; 0.000         ;
+; dbnc_pi_clk ; 0.324 ; 0.000         ;
 +-------------+-------+---------------+
 
 
@@ -297,7 +297,7 @@ No synchronizer chains to report.
 +-------------+--------+------------------+
 ; Clock       ; Slack  ; End Point TNS    ;
 +-------------+--------+------------------+
-; dbnc_pi_clk ; -1.138 ; -156.828         ;
+; dbnc_pi_clk ; -1.220 ; -50.008          ;
 +-------------+--------+------------------+
 
 
@@ -306,7 +306,7 @@ No synchronizer chains to report.
 +-------------+-------+------------------+
 ; Clock       ; Slack ; End Point TNS    ;
 +-------------+-------+------------------+
-; dbnc_pi_clk ; 0.338 ; 0.000            ;
+; dbnc_pi_clk ; 0.708 ; 0.000            ;
 +-------------+-------+------------------+
 
 
@@ -315,9 +315,9 @@ No synchronizer chains to report.
 +--------------------------+--------+----------------+
 ; Clock                    ; Slack  ; End Point TNS  ;
 +--------------------------+--------+----------------+
-; fpga_clk                 ; -0.766 ; -15.174        ;
-; slow_down_clock:slow|clk ; -0.116 ; -0.347         ;
-; dbnc_pi_clk              ; -0.081 ; -0.658         ;
+; fpga_clk                 ; -0.724 ; -14.770        ;
+; slow_down_clock:slow|clk ; -0.168 ; -0.645         ;
+; dbnc_pi_clk              ; 0.118  ; 0.000          ;
 +--------------------------+--------+----------------+
 
 
@@ -332,8 +332,8 @@ No synchronizer chains to report.
 +-------------+--------+---------------+
 ; Clock       ; Slack  ; End Point TNS ;
 +-------------+--------+---------------+
-; fpga_clk    ; -3.279 ; -60.933       ;
-; dbnc_pi_clk ; -2.240 ; -292.421      ;
+; fpga_clk    ; -3.441 ; -62.549       ;
+; dbnc_pi_clk ; -1.958 ; -61.769       ;
 +-------------+--------+---------------+
 
 
@@ -342,8 +342,8 @@ No synchronizer chains to report.
 +-------------+-------+---------------+
 ; Clock       ; Slack ; End Point TNS ;
 +-------------+-------+---------------+
-; dbnc_pi_clk ; 0.135 ; 0.000         ;
-; fpga_clk    ; 0.185 ; 0.000         ;
+; fpga_clk    ; 0.190 ; 0.000         ;
+; dbnc_pi_clk ; 0.277 ; 0.000         ;
 +-------------+-------+---------------+
 
 
@@ -352,7 +352,7 @@ No synchronizer chains to report.
 +-------------+--------+------------------+
 ; Clock       ; Slack  ; End Point TNS    ;
 +-------------+--------+------------------+
-; dbnc_pi_clk ; -0.843 ; -113.940         ;
+; dbnc_pi_clk ; -0.892 ; -36.285          ;
 +-------------+--------+------------------+
 
 
@@ -361,7 +361,7 @@ No synchronizer chains to report.
 +-------------+-------+------------------+
 ; Clock       ; Slack ; End Point TNS    ;
 +-------------+-------+------------------+
-; dbnc_pi_clk ; 0.188 ; 0.000            ;
+; dbnc_pi_clk ; 0.473 ; 0.000            ;
 +-------------+-------+------------------+
 
 
@@ -370,9 +370,9 @@ No synchronizer chains to report.
 +--------------------------+--------+----------------+
 ; Clock                    ; Slack  ; End Point TNS  ;
 +--------------------------+--------+----------------+
-; fpga_clk                 ; -0.805 ; -19.780        ;
-; slow_down_clock:slow|clk ; -0.053 ; -0.158         ;
-; dbnc_pi_clk              ; -0.004 ; -0.008         ;
+; fpga_clk                 ; -0.759 ; -19.395        ;
+; slow_down_clock:slow|clk ; -0.124 ; -0.466         ;
+; dbnc_pi_clk              ; 0.133  ; 0.000          ;
 +--------------------------+--------+----------------+
 
 
@@ -382,20 +382,20 @@ No synchronizer chains to report.
 No synchronizer chains to report.
 
 
-+------------------------------------------------------------------------------------------+
-; Multicorner Timing Analysis Summary                                                      ;
-+---------------------------+-----------+-------+----------+---------+---------------------+
-; Clock                     ; Setup     ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
-+---------------------------+-----------+-------+----------+---------+---------------------+
-; Worst-case Slack          ; -7.637    ; 0.135 ; -2.655   ; 0.188   ; -0.805              ;
-;  dbnc_pi_clk              ; -6.443    ; 0.135 ; -2.655   ; 0.188   ; -0.538              ;
-;  fpga_clk                 ; -7.637    ; 0.185 ; N/A      ; N/A     ; -0.805              ;
-;  slow_down_clock:slow|clk ; N/A       ; N/A   ; N/A      ; N/A     ; -0.538              ;
-; Design-wide TNS           ; -1012.542 ; 0.0   ; -382.938 ; 0.0     ; -162.443            ;
-;  dbnc_pi_clk              ; -836.657  ; 0.000 ; -382.938 ; 0.000   ; -130.766            ;
-;  fpga_clk                 ; -175.885  ; 0.000 ; N/A      ; N/A     ; -28.179             ;
-;  slow_down_clock:slow|clk ; N/A       ; N/A   ; N/A      ; N/A     ; -3.514              ;
-+---------------------------+-----------+-------+----------+---------+---------------------+
++-----------------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                                     ;
++---------------------------+----------+-------+----------+---------+---------------------+
+; Clock                     ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++---------------------------+----------+-------+----------+---------+---------------------+
+; Worst-case Slack          ; -8.215   ; 0.190 ; -2.678   ; 0.473   ; -0.759              ;
+;  dbnc_pi_clk              ; -5.186   ; 0.277 ; -2.678   ; 0.473   ; -0.538              ;
+;  fpga_clk                 ; -8.215   ; 0.190 ; N/A      ; N/A     ; -0.759              ;
+;  slow_down_clock:slow|clk ; N/A      ; N/A   ; N/A      ; N/A     ; -0.547              ;
+; Design-wide TNS           ; -343.614 ; 0.0   ; -113.724 ; 0.0     ; -66.31              ;
+;  dbnc_pi_clk              ; -165.981 ; 0.000 ; -113.724 ; 0.000   ; -34.579             ;
+;  fpga_clk                 ; -181.316 ; 0.000 ; N/A      ; N/A     ; -27.446             ;
+;  slow_down_clock:slow|clk ; N/A      ; N/A   ; N/A      ; N/A     ; -4.286              ;
++---------------------------+----------+-------+----------+---------+---------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -419,12 +419,12 @@ No synchronizer chains to report.
 +--------------+--------------+-----------------+-----------------+
 ; switches[3]  ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; switches[2]  ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
-; switches[0]  ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; switches[1]  ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; switches[0]  ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; data_in      ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; write_enable ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; pi_clk       ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; rst          ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
-; write_enable ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; fpga_clk     ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 +--------------+--------------+-----------------+-----------------+
 
@@ -490,8 +490,8 @@ No synchronizer chains to report.
 +--------------------------+-------------+----------+----------+----------+----------+
 ; From Clock               ; To Clock    ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +--------------------------+-------------+----------+----------+----------+----------+
-; dbnc_pi_clk              ; dbnc_pi_clk ; 52848    ; 0        ; 0        ; 0        ;
-; slow_down_clock:slow|clk ; dbnc_pi_clk ; 256      ; 0        ; 0        ; 0        ;
+; dbnc_pi_clk              ; dbnc_pi_clk ; 1388     ; 0        ; 0        ; 0        ;
+; slow_down_clock:slow|clk ; dbnc_pi_clk ; 199      ; 0        ; 0        ; 0        ;
 ; fpga_clk                 ; fpga_clk    ; 17952    ; 0        ; 0        ; 0        ;
 ; slow_down_clock:slow|clk ; fpga_clk    ; 1        ; 1        ; 0        ; 0        ;
 +--------------------------+-------------+----------+----------+----------+----------+
@@ -503,8 +503,8 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +--------------------------+-------------+----------+----------+----------+----------+
 ; From Clock               ; To Clock    ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +--------------------------+-------------+----------+----------+----------+----------+
-; dbnc_pi_clk              ; dbnc_pi_clk ; 52848    ; 0        ; 0        ; 0        ;
-; slow_down_clock:slow|clk ; dbnc_pi_clk ; 256      ; 0        ; 0        ; 0        ;
+; dbnc_pi_clk              ; dbnc_pi_clk ; 1388     ; 0        ; 0        ; 0        ;
+; slow_down_clock:slow|clk ; dbnc_pi_clk ; 199      ; 0        ; 0        ; 0        ;
 ; fpga_clk                 ; fpga_clk    ; 17952    ; 0        ; 0        ; 0        ;
 ; slow_down_clock:slow|clk ; fpga_clk    ; 1        ; 1        ; 0        ; 0        ;
 +--------------------------+-------------+----------+----------+----------+----------+
@@ -516,7 +516,7 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +--------------------------+-------------+----------+----------+----------+----------+
 ; From Clock               ; To Clock    ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +--------------------------+-------------+----------+----------+----------+----------+
-; slow_down_clock:slow|clk ; dbnc_pi_clk ; 160      ; 0        ; 0        ; 0        ;
+; slow_down_clock:slow|clk ; dbnc_pi_clk ; 44       ; 0        ; 0        ; 0        ;
 +--------------------------+-------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -526,7 +526,7 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +--------------------------+-------------+----------+----------+----------+----------+
 ; From Clock               ; To Clock    ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +--------------------------+-------------+----------+----------+----------+----------+
-; slow_down_clock:slow|clk ; dbnc_pi_clk ; 160      ; 0        ; 0        ; 0        ;
+; slow_down_clock:slow|clk ; dbnc_pi_clk ; 44       ; 0        ; 0        ; 0        ;
 +--------------------------+-------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -551,9 +551,9 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
 ; Unconstrained Input Ports       ; 8     ; 8    ;
-; Unconstrained Input Port Paths  ; 28    ; 28   ;
-; Unconstrained Output Ports      ; 6     ; 6    ;
-; Unconstrained Output Port Paths ; 114   ; 114  ;
+; Unconstrained Input Port Paths  ; 8     ; 8    ;
+; Unconstrained Output Ports      ; 1     ; 1    ;
+; Unconstrained Output Port Paths ; 10    ; 10   ;
 +---------------------------------+-------+------+
 
 
@@ -590,11 +590,6 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Output Port ; Comment                                                                               ;
 +-------------+---------------------------------------------------------------------------------------+
 ; LED[0]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; LED[1]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; LED[2]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; LED[3]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; LED[4]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; LED[5]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +-------------+---------------------------------------------------------------------------------------+
 
 
@@ -620,11 +615,6 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Output Port ; Comment                                                                               ;
 +-------------+---------------------------------------------------------------------------------------+
 ; LED[0]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; LED[1]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; LED[2]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; LED[3]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; LED[4]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; LED[5]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +-------------+---------------------------------------------------------------------------------------+
 
 
@@ -634,7 +624,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Mon Apr 29 23:51:56 2024
+    Info: Processing started: Tue Apr 30 15:21:47 2024
 Info: Command: quartus_sta neuralnet -c neuralnet
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -665,123 +655,123 @@ Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1100mV 100C Model
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -7.409
+Info (332146): Worst-case setup slack is -7.867
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -7.409            -172.917 fpga_clk 
-    Info (332119):    -5.979            -801.073 dbnc_pi_clk 
-Info (332146): Worst-case hold slack is 0.434
+    Info (332119):    -7.867            -177.633 fpga_clk 
+    Info (332119):    -5.114            -165.981 dbnc_pi_clk 
+Info (332146): Worst-case hold slack is 0.440
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.434               0.000 fpga_clk 
-    Info (332119):     0.494               0.000 dbnc_pi_clk 
-Info (332146): Worst-case recovery slack is -2.655
+    Info (332119):     0.440               0.000 fpga_clk 
+    Info (332119):     0.766               0.000 dbnc_pi_clk 
+Info (332146): Worst-case recovery slack is -2.678
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.655            -382.938 dbnc_pi_clk 
-Info (332146): Worst-case removal slack is 1.068
+    Info (332119):    -2.678            -113.724 dbnc_pi_clk 
+Info (332146): Worst-case removal slack is 1.625
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     1.068               0.000 dbnc_pi_clk 
-Info (332146): Worst-case minimum pulse width slack is -0.758
+    Info (332119):     1.625               0.000 dbnc_pi_clk 
+Info (332146): Worst-case minimum pulse width slack is -0.692
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.758             -28.179 fpga_clk 
-    Info (332119):    -0.538            -130.766 dbnc_pi_clk 
-    Info (332119):    -0.538              -3.498 slow_down_clock:slow|clk 
+    Info (332119):    -0.692             -27.446 fpga_clk 
+    Info (332119):    -0.543              -4.285 slow_down_clock:slow|clk 
+    Info (332119):    -0.538             -34.579 dbnc_pi_clk 
 Info: Analyzing Slow 1100mV -40C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -7.637
+Info (332146): Worst-case setup slack is -8.215
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -7.637            -175.885 fpga_clk 
-    Info (332119):    -6.443            -836.657 dbnc_pi_clk 
-Info (332146): Worst-case hold slack is 0.452
+    Info (332119):    -8.215            -181.316 fpga_clk 
+    Info (332119):    -5.186            -159.944 dbnc_pi_clk 
+Info (332146): Worst-case hold slack is 0.459
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.452               0.000 fpga_clk 
-    Info (332119):     0.561               0.000 dbnc_pi_clk 
-Info (332146): Worst-case recovery slack is -2.464
+    Info (332119):     0.459               0.000 fpga_clk 
+    Info (332119):     0.770               0.000 dbnc_pi_clk 
+Info (332146): Worst-case recovery slack is -2.427
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.464            -346.493 dbnc_pi_clk 
-Info (332146): Worst-case removal slack is 0.960
+    Info (332119):    -2.427            -103.013 dbnc_pi_clk 
+Info (332146): Worst-case removal slack is 1.476
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.960               0.000 dbnc_pi_clk 
-Info (332146): Worst-case minimum pulse width slack is -0.764
+    Info (332119):     1.476               0.000 dbnc_pi_clk 
+Info (332146): Worst-case minimum pulse width slack is -0.699
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.764             -26.187 fpga_clk 
-    Info (332119):    -0.538            -129.709 dbnc_pi_clk 
-    Info (332119):    -0.538              -3.514 slow_down_clock:slow|clk 
+    Info (332119):    -0.699             -26.088 fpga_clk 
+    Info (332119):    -0.547              -4.286 slow_down_clock:slow|clk 
+    Info (332119):    -0.538             -34.240 dbnc_pi_clk 
 Info: Analyzing Fast 1100mV 100C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -3.788
+Info (332146): Worst-case setup slack is -3.914
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.788             -71.862 fpga_clk 
-    Info (332119):    -2.596            -344.821 dbnc_pi_clk 
-Info (332146): Worst-case hold slack is 0.156
+    Info (332119):    -3.914             -72.152 fpga_clk 
+    Info (332119):    -2.366             -78.436 dbnc_pi_clk 
+Info (332146): Worst-case hold slack is 0.205
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.156               0.000 dbnc_pi_clk 
-    Info (332119):     0.203               0.000 fpga_clk 
-Info (332146): Worst-case recovery slack is -1.138
+    Info (332119):     0.205               0.000 fpga_clk 
+    Info (332119):     0.324               0.000 dbnc_pi_clk 
+Info (332146): Worst-case recovery slack is -1.220
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -1.138            -156.828 dbnc_pi_clk 
-Info (332146): Worst-case removal slack is 0.338
+    Info (332119):    -1.220             -50.008 dbnc_pi_clk 
+Info (332146): Worst-case removal slack is 0.708
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.338               0.000 dbnc_pi_clk 
-Info (332146): Worst-case minimum pulse width slack is -0.766
+    Info (332119):     0.708               0.000 dbnc_pi_clk 
+Info (332146): Worst-case minimum pulse width slack is -0.724
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.766             -15.174 fpga_clk 
-    Info (332119):    -0.116              -0.347 slow_down_clock:slow|clk 
-    Info (332119):    -0.081              -0.658 dbnc_pi_clk 
+    Info (332119):    -0.724             -14.770 fpga_clk 
+    Info (332119):    -0.168              -0.645 slow_down_clock:slow|clk 
+    Info (332119):     0.118               0.000 dbnc_pi_clk 
 Info: Analyzing Fast 1100mV -40C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -3.279
+Info (332146): Worst-case setup slack is -3.441
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.279             -60.933 fpga_clk 
-    Info (332119):    -2.240            -292.421 dbnc_pi_clk 
-Info (332146): Worst-case hold slack is 0.135
+    Info (332119):    -3.441             -62.549 fpga_clk 
+    Info (332119):    -1.958             -61.769 dbnc_pi_clk 
+Info (332146): Worst-case hold slack is 0.190
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.135               0.000 dbnc_pi_clk 
-    Info (332119):     0.185               0.000 fpga_clk 
-Info (332146): Worst-case recovery slack is -0.843
+    Info (332119):     0.190               0.000 fpga_clk 
+    Info (332119):     0.277               0.000 dbnc_pi_clk 
+Info (332146): Worst-case recovery slack is -0.892
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.843            -113.940 dbnc_pi_clk 
-Info (332146): Worst-case removal slack is 0.188
+    Info (332119):    -0.892             -36.285 dbnc_pi_clk 
+Info (332146): Worst-case removal slack is 0.473
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.188               0.000 dbnc_pi_clk 
-Info (332146): Worst-case minimum pulse width slack is -0.805
+    Info (332119):     0.473               0.000 dbnc_pi_clk 
+Info (332146): Worst-case minimum pulse width slack is -0.759
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.805             -19.780 fpga_clk 
-    Info (332119):    -0.053              -0.158 slow_down_clock:slow|clk 
-    Info (332119):    -0.004              -0.008 dbnc_pi_clk 
+    Info (332119):    -0.759             -19.395 fpga_clk 
+    Info (332119):    -0.124              -0.466 slow_down_clock:slow|clk 
+    Info (332119):     0.133               0.000 dbnc_pi_clk 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 13 warnings
-    Info: Peak virtual memory: 855 megabytes
-    Info: Processing ended: Mon Apr 29 23:52:02 2024
+    Info: Peak virtual memory: 870 megabytes
+    Info: Processing ended: Tue Apr 30 15:21:53 2024
     Info: Elapsed time: 00:00:06
     Info: Total CPU time (on all processors): 00:00:06
 

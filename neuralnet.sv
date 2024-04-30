@@ -1,23 +1,5 @@
 `include "common.svh"
 
-function automatic logic [7:0] hue(input logic [23:0] hsv);
-    return hsv[7:0]
-endfunction
-
-function automatic logic [7:0] saturation(input logic [23:0] hsv);
-    return hsv[15:8]
-endfunction
-
-function automatic logic [7:0] value(input logic [23:0] hsv);
-    return hsv[23:16]
-endfunction
-
-function automatic logic is_hand_bit (input logic [23:0] hsv);
-    return hue(hsv_buffer) >= MIN_HUE && hue(hsv_buffer) <= MAX_HUE &&
-            saturation(hsv_buffer) >= MIN_SATURATION && saturation(hsv_buffer) <= MAX_SATURATION
-            value(hsv_buffer) >= MIN_VALUE && value(hsv_buffer) <= MAX_VALUE;
-endfunction
-
 module neuralnet (
     input wire fpga_clk, // fpga clk, runs 50 mhz I think
     input wire pi_clk, // Raspberry Pi clock
@@ -58,7 +40,7 @@ module neuralnet (
         dbnc_rst = 0;
         dbnc_write_enable = 0;
         bit_cnt = 0;
-        bit_buffer = 0;
+        hsv_buffer = 0;
     end
 
     slow_down_clock slow(fpga_clk, slow_clk);
@@ -105,68 +87,38 @@ module neuralnet (
                 hsv_buffer = 0;
                 bit_cnt = 0;
                 // Image is ready once we read in all data
-                image_ready = row_index == LENGTH && col_index == WIDTH;
+                image_ready = row_index == LENGTH;
             end
         end
     end
 
-    // assign LED[3:0] = switches;
-
     always_comb begin
         case (switches) 
             0: begin
-                LED[5:0] = image[0][5:0];
+                LED[0] = filtered_image[5][14];
             end
             1: begin
-                LED[5:0] = image[1][5:0];
+                LED[0] = filtered_image[5][15];
             end
             2: begin
-                LED[5:0] = image[2][5:0];
+                LED[0] = filtered_image[6][14];
             end
             3: begin
-                LED[5:0] = image[3][5:0];
+                LED[0] = filtered_image[6][15];
             end
             4: begin
-                LED[5:0] = image[100][5:0];
+                LED[0] = filtered_image[16][16];
             end
             5: begin
-                LED[5:0] = image[300][5:0];
-            end
-            6: begin
-                LED[5:0] = image[400][5:0];
-            end
-            7: begin
-                LED[5:0] = image[500][5:0];
-            end
-            8: begin
-                LED[5:0] = image[600][5:0];
-            end
-            9: begin
-                LED[5:0] = image[700][5:0];
-            end
-            10: begin
-                LED[5:0] = image[800][5:0];
-            end
-            11: begin
-                LED[5:0] = image[900][5:0];
-            end
-            12: begin
-                LED[5:0] = image[1000][5:0];
-            end
-            13: begin
-                LED[5:0] = image[1798][5:0];
-            end
-            14: begin
-                LED[5:0] = image[1799][5:0];
-            end
-            15: begin
-                LED[5:0] = image[1799][5:0];
+                LED[0] = filtered_image[16][17];
             end
             default begin
-                LED[5:0] = 0;
+                LED[0] = 0;
             end
         endcase
+        LED[5:1] = 5'd0;
     end
+
 endmodule
 
 
@@ -189,25 +141,19 @@ module slow_down_clock(input fpga_clk, output slow_clk);
     assign slow_clk = clk;
 endmodule
 
-// logic [31:0] h;
-// logic [31:0] w;
-// logic [31:0] d;
+function automatic logic [7:0] hue(input logic [23:0] hsv);
+    return hsv[7:0];
+endfunction
 
-// Calculate indices based on the count
-// d = d + 1;
-// if (d == DEPTH) begin
-//     d = 0;
-//     w = w + 1;
-// end
-// if (w == WIDTH) begin
-//     w = 0;
-//     h = h + 1;
-// end
+function automatic logic [7:0] saturation(input logic [23:0] hsv);
+    return hsv[15:8];
+endfunction
 
-// for (int height = 0; height < HEIGHT; height++) begin
-//     for (int width = 0; width < WIDTH; width++) begin
-//         for (int depth = 0; depth < DEPTH; depth++) begin
-//             image[height][width][depth] = 8'd0;
-//         end
-//     end
-// end
+function automatic logic [7:0] value(input logic [23:0] hsv);
+    return hsv[23:16];
+endfunction
+
+function automatic logic is_hand_bit (input logic [23:0] hsv);
+    return hue(hsv) >= MIN_HUE && hue(hsv) <= MAX_HUE &&
+        saturation(hsv) >= MIN_SATURATION && value(hsv) >= MIN_VALUE;
+endfunction

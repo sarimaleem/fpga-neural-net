@@ -187,26 +187,3 @@ function automatic logic is_hand_bit (input logic [23:0] hsv);
     return hue(hsv) >= MIN_HUE && hue(hsv) <= MAX_HUE &&
         saturation(hsv) >= MIN_SATURATION && value(hsv) >= MIN_VALUE;
 endfunction
-
-// logic [31:0] h;
-// logic [31:0] w;
-// logic [31:0] d;
-
-// Calculate indices based on the count
-// d = d + 1;
-// if (d == DEPTH) begin
-//     d = 0;
-//     w = w + 1;
-// end
-// if (w == WIDTH) begin
-//     w = 0;
-//     h = h + 1;
-// end
-
-// for (int height = 0; height < HEIGHT; height++) begin
-//     for (int width = 0; width < WIDTH; width++) begin
-//         for (int depth = 0; depth < DEPTH; depth++) begin
-//             image[height][width][depth] = 8'd0;
-//         end
-//     end
-// end
