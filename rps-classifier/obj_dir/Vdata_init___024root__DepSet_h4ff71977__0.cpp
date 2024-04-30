@@ -2440,6 +2440,26 @@ VL_INLINE_OPT void Vdata_init___024root___nba_sequent__TOP__0(Vdata_init___024ro
         vlSelf->data_init__DOT__classifier__DOT__sum_left 
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & (vlSelf->data_init__DOT__image[0U] 
+                        >> 7U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0U] 
+                        >> 8U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0U] 
+                        >> 9U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0U] 
+                        >> 0xaU)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0U] 
+                        >> 0xbU)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0U] 
                         >> 0x1eU)));
         vlSelf->data_init__DOT__classifier__DOT__sum_left 
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
@@ -2464,6 +2484,26 @@ VL_INLINE_OPT void Vdata_init___024root___nba_sequent__TOP__0(Vdata_init___024ro
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & (vlSelf->data_init__DOT__image[1U] 
                         >> 4U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[1U] 
+                        >> 5U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[1U] 
+                        >> 6U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[1U] 
+                        >> 7U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[1U] 
+                        >> 8U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[1U] 
+                        >> 9U)));
         vlSelf->data_init__DOT__classifier__DOT__sum_left 
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & (vlSelf->data_init__DOT__image[1U] 
@@ -2494,6 +2534,26 @@ VL_INLINE_OPT void Vdata_init___024root___nba_sequent__TOP__0(Vdata_init___024ro
         vlSelf->data_init__DOT__classifier__DOT__sum_left 
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & (vlSelf->data_init__DOT__image[2U] 
+                        >> 3U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[2U] 
+                        >> 4U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[2U] 
+                        >> 5U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[2U] 
+                        >> 6U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[2U] 
+                        >> 7U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[2U] 
                         >> 0x1aU)));
         vlSelf->data_init__DOT__classifier__DOT__sum_left 
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
@@ -2518,6 +2578,26 @@ VL_INLINE_OPT void Vdata_init___024root___nba_sequent__TOP__0(Vdata_init___024ro
         vlSelf->data_init__DOT__classifier__DOT__sum_left 
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & vlSelf->data_init__DOT__image[3U]));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[3U] 
+                        >> 1U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[3U] 
+                        >> 2U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[3U] 
+                        >> 3U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[3U] 
+                        >> 4U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[3U] 
+                        >> 5U)));
         vlSelf->data_init__DOT__classifier__DOT__sum_left 
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & (vlSelf->data_init__DOT__image[3U] 
@@ -2546,6 +2626,25 @@ VL_INLINE_OPT void Vdata_init___024root___nba_sequent__TOP__0(Vdata_init___024ro
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & (vlSelf->data_init__DOT__image[3U] 
                         >> 0x1eU)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (vlSelf->data_init__DOT__image[3U] 
+                  >> 0x1fU));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & vlSelf->data_init__DOT__image[4U]));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[4U] 
+                        >> 1U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[4U] 
+                        >> 2U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[4U] 
+                        >> 3U)));
         vlSelf->data_init__DOT__classifier__DOT__sum_left 
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & (vlSelf->data_init__DOT__image[4U] 
@@ -2574,6 +2673,25 @@ VL_INLINE_OPT void Vdata_init___024root___nba_sequent__TOP__0(Vdata_init___024ro
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & (vlSelf->data_init__DOT__image[4U] 
                         >> 0x1cU)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[4U] 
+                        >> 0x1dU)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[4U] 
+                        >> 0x1eU)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (vlSelf->data_init__DOT__image[4U] 
+                  >> 0x1fU));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & vlSelf->data_init__DOT__image[5U]));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[5U] 
+                        >> 1U)));
         vlSelf->data_init__DOT__classifier__DOT__sum_left 
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & (vlSelf->data_init__DOT__image[5U] 
@@ -2602,6 +2720,26 @@ VL_INLINE_OPT void Vdata_init___024root___nba_sequent__TOP__0(Vdata_init___024ro
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & (vlSelf->data_init__DOT__image[5U] 
                         >> 0x1aU)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[5U] 
+                        >> 0x1bU)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[5U] 
+                        >> 0x1cU)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[5U] 
+                        >> 0x1dU)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[5U] 
+                        >> 0x1eU)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (vlSelf->data_init__DOT__image[5U] 
+                  >> 0x1fU));
         vlSelf->data_init__DOT__classifier__DOT__sum_left 
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & (vlSelf->data_init__DOT__image[6U] 
@@ -2630,6 +2768,26 @@ VL_INLINE_OPT void Vdata_init___024root___nba_sequent__TOP__0(Vdata_init___024ro
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & (vlSelf->data_init__DOT__image[6U] 
                         >> 0x18U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[6U] 
+                        >> 0x19U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[6U] 
+                        >> 0x1aU)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[6U] 
+                        >> 0x1bU)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[6U] 
+                        >> 0x1cU)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[6U] 
+                        >> 0x1dU)));
         vlSelf->data_init__DOT__classifier__DOT__sum_left 
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & (vlSelf->data_init__DOT__image[7U] 
@@ -2658,6 +2816,26 @@ VL_INLINE_OPT void Vdata_init___024root___nba_sequent__TOP__0(Vdata_init___024ro
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & (vlSelf->data_init__DOT__image[7U] 
                         >> 0x16U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[7U] 
+                        >> 0x17U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[7U] 
+                        >> 0x18U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[7U] 
+                        >> 0x19U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[7U] 
+                        >> 0x1aU)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[7U] 
+                        >> 0x1bU)));
         vlSelf->data_init__DOT__classifier__DOT__sum_left 
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & (vlSelf->data_init__DOT__image[8U] 
@@ -2686,6 +2864,26 @@ VL_INLINE_OPT void Vdata_init___024root___nba_sequent__TOP__0(Vdata_init___024ro
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & (vlSelf->data_init__DOT__image[8U] 
                         >> 0x14U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[8U] 
+                        >> 0x15U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[8U] 
+                        >> 0x16U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[8U] 
+                        >> 0x17U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[8U] 
+                        >> 0x18U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[8U] 
+                        >> 0x19U)));
         vlSelf->data_init__DOT__classifier__DOT__sum_left 
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & (vlSelf->data_init__DOT__image[9U] 
@@ -2714,6 +2912,26 @@ VL_INLINE_OPT void Vdata_init___024root___nba_sequent__TOP__0(Vdata_init___024ro
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & (vlSelf->data_init__DOT__image[9U] 
                         >> 0x12U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[9U] 
+                        >> 0x13U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[9U] 
+                        >> 0x14U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[9U] 
+                        >> 0x15U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[9U] 
+                        >> 0x16U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[9U] 
+                        >> 0x17U)));
         vlSelf->data_init__DOT__classifier__DOT__sum_left 
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & (vlSelf->data_init__DOT__image[0xaU] 
@@ -2742,6 +2960,26 @@ VL_INLINE_OPT void Vdata_init___024root___nba_sequent__TOP__0(Vdata_init___024ro
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & (vlSelf->data_init__DOT__image[0xaU] 
                         >> 0x10U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0xaU] 
+                        >> 0x11U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0xaU] 
+                        >> 0x12U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0xaU] 
+                        >> 0x13U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0xaU] 
+                        >> 0x14U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0xaU] 
+                        >> 0x15U)));
         vlSelf->data_init__DOT__classifier__DOT__sum_left 
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & (vlSelf->data_init__DOT__image[0xbU] 
@@ -2770,6 +3008,26 @@ VL_INLINE_OPT void Vdata_init___024root___nba_sequent__TOP__0(Vdata_init___024ro
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & (vlSelf->data_init__DOT__image[0xbU] 
                         >> 0xeU)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0xbU] 
+                        >> 0xfU)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0xbU] 
+                        >> 0x10U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0xbU] 
+                        >> 0x11U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0xbU] 
+                        >> 0x12U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0xbU] 
+                        >> 0x13U)));
         vlSelf->data_init__DOT__classifier__DOT__sum_left 
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & (vlSelf->data_init__DOT__image[0xcU] 
@@ -2798,6 +3056,26 @@ VL_INLINE_OPT void Vdata_init___024root___nba_sequent__TOP__0(Vdata_init___024ro
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & (vlSelf->data_init__DOT__image[0xcU] 
                         >> 0xcU)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0xcU] 
+                        >> 0xdU)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0xcU] 
+                        >> 0xeU)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0xcU] 
+                        >> 0xfU)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0xcU] 
+                        >> 0x10U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0xcU] 
+                        >> 0x11U)));
         vlSelf->data_init__DOT__classifier__DOT__sum_left 
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & (vlSelf->data_init__DOT__image[0xdU] 
@@ -2826,6 +3104,26 @@ VL_INLINE_OPT void Vdata_init___024root___nba_sequent__TOP__0(Vdata_init___024ro
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & (vlSelf->data_init__DOT__image[0xdU] 
                         >> 0xaU)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0xdU] 
+                        >> 0xbU)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0xdU] 
+                        >> 0xcU)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0xdU] 
+                        >> 0xdU)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0xdU] 
+                        >> 0xeU)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0xdU] 
+                        >> 0xfU)));
         vlSelf->data_init__DOT__classifier__DOT__sum_left 
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & (vlSelf->data_init__DOT__image[0xeU] 
@@ -2854,6 +3152,26 @@ VL_INLINE_OPT void Vdata_init___024root___nba_sequent__TOP__0(Vdata_init___024ro
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & (vlSelf->data_init__DOT__image[0xeU] 
                         >> 8U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0xeU] 
+                        >> 9U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0xeU] 
+                        >> 0xaU)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0xeU] 
+                        >> 0xbU)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0xeU] 
+                        >> 0xcU)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0xeU] 
+                        >> 0xdU)));
         vlSelf->data_init__DOT__classifier__DOT__sum_left 
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & vlSelf->data_init__DOT__image[0xfU]));
@@ -2884,6 +3202,26 @@ VL_INLINE_OPT void Vdata_init___024root___nba_sequent__TOP__0(Vdata_init___024ro
         vlSelf->data_init__DOT__classifier__DOT__sum_left 
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & (vlSelf->data_init__DOT__image[0xfU] 
+                        >> 7U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0xfU] 
+                        >> 8U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0xfU] 
+                        >> 9U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0xfU] 
+                        >> 0xaU)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0xfU] 
+                        >> 0xbU)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0xfU] 
                         >> 0x1eU)));
         vlSelf->data_init__DOT__classifier__DOT__sum_left 
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
@@ -2908,6 +3246,26 @@ VL_INLINE_OPT void Vdata_init___024root___nba_sequent__TOP__0(Vdata_init___024ro
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & (vlSelf->data_init__DOT__image[0x10U] 
                         >> 4U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0x10U] 
+                        >> 5U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0x10U] 
+                        >> 6U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0x10U] 
+                        >> 7U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0x10U] 
+                        >> 8U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0x10U] 
+                        >> 9U)));
         vlSelf->data_init__DOT__classifier__DOT__sum_left 
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & (vlSelf->data_init__DOT__image[0x10U] 
@@ -2938,6 +3296,26 @@ VL_INLINE_OPT void Vdata_init___024root___nba_sequent__TOP__0(Vdata_init___024ro
         vlSelf->data_init__DOT__classifier__DOT__sum_left 
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & (vlSelf->data_init__DOT__image[0x11U] 
+                        >> 3U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0x11U] 
+                        >> 4U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0x11U] 
+                        >> 5U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0x11U] 
+                        >> 6U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0x11U] 
+                        >> 7U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0x11U] 
                         >> 0x1aU)));
         vlSelf->data_init__DOT__classifier__DOT__sum_left 
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
@@ -2962,6 +3340,26 @@ VL_INLINE_OPT void Vdata_init___024root___nba_sequent__TOP__0(Vdata_init___024ro
         vlSelf->data_init__DOT__classifier__DOT__sum_left 
             = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
                + (1U & vlSelf->data_init__DOT__image[0x12U]));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0x12U] 
+                        >> 1U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0x12U] 
+                        >> 2U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0x12U] 
+                        >> 3U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0x12U] 
+                        >> 4U)));
+        vlSelf->data_init__DOT__classifier__DOT__sum_left 
+            = (vlSelf->data_init__DOT__classifier__DOT__sum_left 
+               + (1U & (vlSelf->data_init__DOT__image[0x12U] 
+                        >> 5U)));
         if ((((IData)(vlSelf->data_init__DOT__init_in) 
               & (0U < (IData)(vlSelf->data_init__DOT__classifier__DOT__leftmost_pixel))) 
              & vlSelf->data_init__DOT__image[0U])) {
@@ -6777,10 +7175,11 @@ VL_INLINE_OPT void Vdata_init___024root___nba_sequent__TOP__0(Vdata_init___024ro
             = ((4U == (IData)(vlSelf->data_init__DOT__classifier__DOT__num_transitions))
                 ? 2U : ((0xcU < vlSelf->data_init__DOT__classifier__DOT__sum_left)
                          ? 1U : 0U));
-        VL_WRITEF_NX("num transitions: %2#, sum left: %10# sum: %10#\n\nresult: %1#\n",0,
+        VL_WRITEF_NX("num transitions: %2#, sum: %10# sum left: %10# leftmost pixel: %2#\n\nresult: %1#\n",0,
                      5,vlSelf->data_init__DOT__classifier__DOT__num_transitions,
-                     32,vlSelf->data_init__DOT__classifier__DOT__sum_left,
                      32,vlSelf->data_init__DOT__classifier__DOT__sum,
-                     2,(IData)(vlSelf->data_init__DOT__classifier__DOT__result));
+                     32,vlSelf->data_init__DOT__classifier__DOT__sum_left,
+                     5,(IData)(vlSelf->data_init__DOT__classifier__DOT__leftmost_pixel),
+                     2,vlSelf->data_init__DOT__classifier__DOT__result);
     }
 }

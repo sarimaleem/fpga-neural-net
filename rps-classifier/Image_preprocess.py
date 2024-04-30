@@ -3,6 +3,7 @@ import io as IO
 import numpy as np
 import cv2
 import os
+import sys
 
 WIDTH = 30
 LENGTH = 20
@@ -22,7 +23,11 @@ upper_green = (UPPER_GREEN_ONE, UPPER_GREEN_TWO, UPPER_GREEN_THREE)
 # Scissors (2): ['6TMYdUMhaEWHQOcc.png', 'Y803FUXqbDOwGm0K.png', 'uJ286TPihhYw3Y3S.png']
 
 def main():
-    img = cv2.imread("data/rock/u3nAxX6ZNsAKQ7WC.png")
+    if len(sys.argv) == 2:
+        img = cv2.imread(f"data/{sys.argv[1]}")
+        ans = sys.argv[1][1:sys.argv[1].index('/', 2)]
+        print(f"justin hello {ans}")
+    else: img = cv2.imread("data/paper/W79peyAyfQqNP1vF.png")
     image = cv2.resize(img, (WIDTH, LENGTH))
     # for debugging
     hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)

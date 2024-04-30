@@ -1,7 +1,7 @@
 tb.o: ../tb.cpp Vdata_init.h \
-  /usr/local/Cellar/verilator/5.024/share/verilator/include/verilated.h \
-  /usr/local/Cellar/verilator/5.024/share/verilator/include/verilatedos.h \
-  /usr/local/Cellar/verilator/5.024/share/verilator/include/verilated_config.h \
-  /usr/local/Cellar/verilator/5.024/share/verilator/include/verilated_types.h \
-  /usr/local/Cellar/verilator/5.024/share/verilator/include/verilated_funcs.h \
-  /usr/local/Cellar/verilator/5.024/share/verilator/include/vltstd/svdpi.h
+  /opt/homebrew/Cellar/verilator/5.024/share/verilator/include/verilated.h \
+  /opt/homebrew/Cellar/verilator/5.024/share/verilator/include/verilatedos.h \
+  /opt/homebrew/Cellar/verilator/5.024/share/verilator/include/verilated_config.h \
+  /opt/homebrew/Cellar/verilator/5.024/share/verilator/include/verilated_types.h \
+  /opt/homebrew/Cellar/verilator/5.024/share/verilator/include/verilated_funcs.h \
+  /opt/homebrew/Cellar/verilator/5.024/share/verilator/include/vltstd/svdpi.h
