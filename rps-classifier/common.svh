@@ -7,12 +7,12 @@ parameter WIDTH = 30;
 parameter SHIFT = LENGTH / 10;
 parameter LEFT = LENGTH * 4 / 10 - 1;
 
-parameter LOWER_GREEN_ONE = 18;
-parameter LOWER_GREEN_TWO = 25;
-parameter LOWER_GREEN_THREE = 25;
+parameter MIN_HUE = 18;
+parameter MIN_SATURATION = 25;
+parameter MIN_VALUE = 25;
 
-parameter UPPER_GREEN_ONE = 43;
-parameter UPPER_GREEN_TWO = 255;
-parameter UPPER_GREEN_THREE = 255;
+parameter MAX_HUE = 43;
+parameter MAX_SATURATION = 255;
+parameter MAX_VALUE = 255;
 
 `endif

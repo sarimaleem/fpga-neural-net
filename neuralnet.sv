@@ -1,3 +1,23 @@
+`include "common.svh"
+
+function automatic logic [7:0] hue(input logic [23:0] hsv);
+    return hsv[7:0]
+endfunction
+
+function automatic logic [7:0] saturation(input logic [23:0] hsv);
+    return hsv[15:8]
+endfunction
+
+function automatic logic [7:0] value(input logic [23:0] hsv);
+    return hsv[23:16]
+endfunction
+
+function automatic logic is_hand_bit (input logic [23:0] hsv);
+    return hue(hsv_buffer) >= MIN_HUE && hue(hsv_buffer) <= MAX_HUE &&
+            saturation(hsv_buffer) >= MIN_SATURATION && saturation(hsv_buffer) <= MAX_SATURATION
+            value(hsv_buffer) >= MIN_VALUE && value(hsv_buffer) <= MAX_VALUE;
+endfunction
+
 module neuralnet (
     input wire fpga_clk, // fpga clk, runs 50 mhz I think
     input wire pi_clk, // Raspberry Pi clock
@@ -8,27 +28,32 @@ module neuralnet (
     output logic [5:0] LED // LED output
 );
 
-    parameter int HEIGHT = 20;
-    parameter int WIDTH = 30;
-    parameter int DEPTH = 3; // Depth of 3 for RGB color channels
-    parameter int BITS = 8;
+    // Image wires
+    logic [LENGTH-1:0][WIDTH-1:0] filtered_image;
+    logic [4:0] row_index;
+    logic [4:0] col_index;
+    logic image_ready;
+    logic [23:0] hsv_buffer;
+    logic [4:0] bit_cnt;
 
-    logic [7:0] image [HEIGHT * WIDTH * DEPTH]; // 3D array to store image data
-    logic [31:0] count;
     logic slow_clk;
     
-    // dbnc stuff
+    // Debounce wires
     logic dbnc_bit;
     logic dbnc_rst;
     logic dbnc_write_enable;
     logic dbnc_pi_clk;
 
-    logic [7:0] bit_buffer;
-    logic [31:0] bit_cnt;
-
     initial begin
+        filtered_image = 0;
+        row_index = 0;
+        col_index = 0;
+        image_ready = 0;
+        hsv_buffer = 0;
+        bit_cnt = 0;
+
         slow_clk = 0;
-        count = 0;
+
         dbnc_bit = 0;
         dbnc_rst = 0;
         dbnc_write_enable = 0;
@@ -47,27 +72,40 @@ module neuralnet (
 
     always @(posedge dbnc_pi_clk or posedge dbnc_rst) begin
         if (dbnc_rst) begin
-            count = 0;
-            bit_buffer = 0;
+            filtered_image = 0;
+            row_index = 0;
+            col_index = 0;
+            image_ready = 0;
+
+            hsv_buffer = 0;
             bit_cnt = 0;
-            for (int i = 0; i < HEIGHT * WIDTH * DEPTH; i++) begin
-                image[i] = 8'd0;
-            end
-        end else if (dbnc_write_enable) begin
-            if (bit_cnt < 7) begin
-                // Shift bit into buffer from the MSB to the LSB
-                bit_buffer[7 - bit_cnt] = dbnc_bit;  // Adjust index for MSB first
-                bit_cnt = bit_cnt + 1;
+            filtered_image = 0;
+        end
+        else if (dbnc_write_enable) begin
+            if (bit_cnt < 23) begin
+                hsv_buffer[bit_cnt] = dbnc_bit;
+                bit_cnt++;
             end else begin
                 // Store the last bit in the LSB, complete the byte and store it
-                bit_buffer[7 - bit_cnt] = dbnc_bit;
-                if (count < HEIGHT*WIDTH*DEPTH) begin
-                    image[count] = bit_buffer;
-                    count = count + 1;
-                end
+                hsv_buffer[bit_cnt] = dbnc_bit;
+
+                if (row_index < LENGTH && col_index < WIDTH) begin
+                    filtered_image[row_index][col_index] = is_hand_bit(hsv_buffer);
+                    
+                    if (col_index == WIDTH - 1) begin
+                        row_index++;
+                        col_index = 0;
+                    end
+                    else begin
+                        col_index++;
+                    end
+                end 
+
                 // Reset buffer and bit counter
-                bit_buffer = 0;
+                hsv_buffer = 0;
                 bit_cnt = 0;
+                // Image is ready once we read in all data
+                image_ready = row_index == LENGTH && col_index == WIDTH;
             end
         end
     end
@@ -149,77 +187,6 @@ module slow_down_clock(input fpga_clk, output slow_clk);
     end
 
     assign slow_clk = clk;
-endmodule
-
-module classifier (
-    input logic clk,
-    input logic init_in,
-    input logic [LENGTH-1:0][WIDTH-1:0] image
-);
-
-    parameter LENGTH = 20;
-    parameter WIDTH = 30;
-
-    parameter SHIFT = LENGTH / 10;
-    parameter LEFT = LENGTH * 4 / 10;
-
-    parameter LOWER_GREEN_ONE = 18;
-    parameter LOWER_GREEN_TWO = 25;
-    parameter LOWER_GREEN_THREE = 25;
-
-    parameter UPPER_GREEN_ONE = 43;
-    parameter UPPER_GREEN_TWO = 255;
-    parameter UPPER_GREEN_THREE = 255;
-
-
-    logic [31:0] sum;
-    logic [31:0] sum_left;
-    logic [4:0] leftmost_pixel;
-    logic [4:0] num_transitions;
-    logic [1:0] result;
-
-    initial begin
-        sum = 0;
-        sum_left = 0;
-        leftmost_pixel = 5'b11111;
-        num_transitions = 0;
-    end
-
-    always @(init_in) begin
-        if (init_in) begin
-            // Compute total pixels
-            for (int i = 0; i < LENGTH; i++) begin
-                for (int j = 0; j < WIDTH; j++) begin
-                    sum += {{31{1'b0}}, init_in & image[i][j]};
-                end
-            end
-
-            // Compute total left pixels
-            for (int i = 0; i < LENGTH; i++) begin
-                for (int j = 0; j < LEFT; j++) begin
-                    sum += {{31{1'b0}}, init_in & image[i][j]};
-                end
-            end
-
-            // Compute leftmost pixel
-            for (int i = 0; i < LENGTH; i++) begin
-                for (int j = 0; j < WIDTH; j++) begin
-                    if (init_in && j < leftmost_pixel && image[i][j]) begin
-                        leftmost_pixel = j[4:0];
-                    end
-                end
-            end
-
-            // Compute number of transitions
-            for (int i = 0; i < LENGTH - 2; i++) begin
-                if (image[i][leftmost_pixel] != image[i][leftmost_pixel + SHIFT]) begin
-                    num_transitions++;
-                end
-            end
-
-            result = num_transitions == 4 ? 2'b10 : (sum_left > 1200 ? 2'b01 : 2'b00);
-        end
-    end
 endmodule
 
 // logic [31:0] h;
