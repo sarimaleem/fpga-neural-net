@@ -1,29 +1,42 @@
 from PIL import Image
-import io as IO
 import numpy as np
-import cv2
 
 LENGTH = 20
 WIDTH = 30
 
-LOWER_HUE = 36 / 2
-UPPER_HUE = 86 / 2
+MIN_HUE = 18
+MAX_HUE = 43
 
+MIN_SATURATION = 25
 
-LOWER_SATURATION = 25
-UPPER_SATURATION = 255
-
-LOWER_VALUE = 25
-LOWER_VALUE = 255
+MIN_VALUE = 25
 
 def main():
-    with Image.open("../rps-classifier/data/0bioBZYFCXqJIulm.png") as img:
-        # img = img.resize((WIDTH, LENGTH))
+    with Image.open("../rps-classifier/data/rock/0bioBZYFCXqJIulm.png") as img:
+        # Convert to HSV and resize
         img = img.convert('HSV').resize((WIDTH, LENGTH))
         img_array = np.array(img)
-        byte_list = img_array.tobytes()
-        print(byte_list)
-        with open('output_bytes.bin', 'wb') as file:
-            file.write(byte_list)
+        
+        # Apply HSV filters
+        mask = (
+            (img_array[:, :, 0] >= MIN_HUE) & (img_array[:, :, 0] <= MAX_HUE) &  # Hue filter
+            (img_array[:, :, 1] >= MIN_SATURATION) &  # Saturation filter
+            (img_array[:, :, 2] >= MIN_VALUE)  # Value filter
+        )
+
+        # Convert boolean mask to int (1 for True, 0 for False)
+        mask = mask.astype(int)
+        
+        # Find edges
+        edges = []
+        for row in range(mask.shape[0]):
+            for col in range(mask.shape[1] - 1):
+                if mask[row, col] == 0 and mask[row, col + 1] == 1:
+                    edges.append((row, col))
+        
+        # Print edges
+        print(mask)
+        for edge in edges:
+            print(f"{edge[0], edge[1]}")
 
 main()

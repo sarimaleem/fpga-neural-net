@@ -5,7 +5,7 @@ parameter LENGTH = 20;
 parameter WIDTH = 30;
 
 parameter SHIFT = LENGTH / 10;
-parameter LEFT = LENGTH * 4 / 10 - 1;
+parameter LEFT = WIDTH * 4 / 10; // can change by one if needed
 
 parameter MIN_HUE = 18;
 parameter MIN_SATURATION = 25;
