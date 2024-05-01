@@ -46,11 +46,11 @@ def main():
 
     with open("data_init.sv", "w") as output:
         output.write('`include "common.svh"\n\n')
-        output.write("module data_init (input logic clk);\n\n")
+        output.write("module data_init ();\n\n")
         output.write(f"    logic [LENGTH-1:0][WIDTH-1:0] image;\n")
         output.write(f"    logic init_in;\n")
 
-        output.write("    classifier classifier (clk, init_in, image);\n\n")
+        output.write("    classifier classifier (init_in, image);\n\n")
 
         output.write("    initial begin\n")
         for i in range(LENGTH):

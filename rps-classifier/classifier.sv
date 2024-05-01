@@ -1,7 +1,7 @@
 `include "common.svh"
 
 module classifier (
-    input logic clk,
+    input logic rst,
     input logic init_in,
     input logic [LENGTH-1:0][WIDTH-1:0] image
 );
@@ -19,8 +19,15 @@ module classifier (
         num_transitions = 0;
     end
 
-    always @(init_in) begin
-        if (init_in) begin
+    always @(init_in or rst) begin
+        if (rst) begin
+            $display("RESETTING IN CLASSIFIER!!!!!!");
+            sum = 0;
+            sum_left = 0;
+            leftmost_pixel = 5'b11111;
+            num_transitions = 0;
+        end
+        else if (init_in) begin
             // Compute total pixels
             for (int i = 0; i < LENGTH; i++) begin
                 for (int j = 0; j < WIDTH; j++) begin
@@ -51,9 +58,34 @@ module classifier (
                 end
             end
 
-            assign result = num_transitions == 4 ? 2'b10 : (sum_left > LENGTH*WIDTH/50 ? 2'b01 : 2'b00);
+            assign result = num_transitions == 4 ? 2'b10 : (sum_left > LENGTH * WIDTH / 50 ? 2'b01 : 2'b00);
             $display("num transitions: %d, sum: %d sum left: %d leftmost pixel: %d\n", num_transitions, sum, sum_left, leftmost_pixel);
             $display("result: %d", result);
         end
     end
+
+    // always_comb begin
+    //     case (result)
+    //         0: begin
+    //             LED[0] = 1;
+    //             LED[1] = 0;
+    //             LED[2] = 0;
+    //         end
+    //         1: begin
+    //             LED[0] = 0;
+    //             LED[1] = 1;
+    //             LED[2] = 0;
+    //         end
+    //         2: begin
+    //             LED[0] = 0;
+    //             LED[1] = 0;
+    //             LED[2] = 1;
+    //         end
+    //         default: begin
+    //             LED[0] = 0;
+    //             LED[1] = 0;
+    //             LED[2] = 0;
+    //         end
+    //     endcase
+    // end
 endmodule

@@ -15,6 +15,7 @@ module image_transfer (
     logic [23:0] hsv_buffer;
     logic [4:0] bit_cnt;
 
+
     logic slow_clk;
     
     // Debounce wires
@@ -22,6 +23,8 @@ module image_transfer (
     logic dbnc_rst;
     logic dbnc_pi_clk;
 
+    classifier classifier (dbnc_rst, image_ready, filtered_image);
+    
     initial begin
         filtered_image = 0;
         row_index = 0;
@@ -48,6 +51,7 @@ module image_transfer (
 
     always @(posedge dbnc_pi_clk or posedge dbnc_rst) begin
         if (dbnc_rst) begin
+            $display("RESETTING!!!");
             filtered_image = 0;
             row_index = 0;
             col_index = 0;
@@ -66,10 +70,12 @@ module image_transfer (
                 hsv_buffer[bit_cnt] = dbnc_bit;
 
                 if (row_index < LENGTH && col_index < WIDTH) begin
-                    $display("result: %b", is_hand_bit(hsv_buffer));
                     filtered_image[row_index][col_index] = is_hand_bit(hsv_buffer);
+
+                    // $write("%b ", is_hand_bit(hsv_buffer));
                     
                     if (col_index == WIDTH - 1) begin
+                        // $display();
                         row_index++;
                         col_index = 0;
                     end
@@ -121,6 +127,6 @@ function automatic logic [7:0] value(input logic [23:0] hsv);
 endfunction
 
 function automatic logic is_hand_bit (input logic [23:0] hsv);
-    return hue(hsv) >= MIN_HUE && hue(hsv) <= MAX_HUE &&
-        saturation(hsv) >= MIN_SATURATION && value(hsv) >= MIN_VALUE;
+    return ~(hue(hsv) >= MIN_HUE && hue(hsv) <= MAX_HUE &&
+        saturation(hsv) >= MIN_SATURATION && value(hsv) >= MIN_VALUE);
 endfunction

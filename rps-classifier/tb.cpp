@@ -17,7 +17,6 @@ bool run_classifier() {
 
     // each iteration flips clock edge
     for (int iter = 0; iter < NUM_CYCLES; iter++) {
-        dut->clk = iter % 2;
         dut->eval();
     }
 
