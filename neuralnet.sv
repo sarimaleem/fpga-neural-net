@@ -19,12 +19,16 @@ module neuralnet (
     logic [4:0] bit_cnt;
 
     logic slow_clk;
+
+    logic [1:0] result;
     
     // Debounce wires
     logic dbnc_bit;
     logic dbnc_rst;
     logic dbnc_write_enable;
     logic dbnc_pi_clk;
+
+    classifier classify(image_ready, filtered_image, result);
 
     initial begin
         filtered_image = 0;
@@ -33,14 +37,13 @@ module neuralnet (
         image_ready = 0;
         hsv_buffer = 0;
         bit_cnt = 0;
-
         slow_clk = 0;
-
         dbnc_bit = 0;
         dbnc_rst = 0;
         dbnc_write_enable = 0;
         bit_cnt = 0;
         hsv_buffer = 0;
+        result = 3;
     end
 
     slow_down_clock slow(fpga_clk, slow_clk);
@@ -58,7 +61,6 @@ module neuralnet (
             row_index = 0;
             col_index = 0;
             image_ready = 0;
-
             hsv_buffer = 0;
             bit_cnt = 0;
             filtered_image = 0;
@@ -93,31 +95,55 @@ module neuralnet (
     end
 
     always_comb begin
-        case (switches) 
+        case (result)
             0: begin
-                LED[0] = filtered_image[5][14];
+                LED[0] = 1;
+                LED[1] = 0;
+                LED[2] = 0;
             end
             1: begin
-                LED[0] = filtered_image[5][15];
+                LED[0] = 0;
+                LED[1] = 1;
+                LED[2] = 0;
             end
             2: begin
-                LED[0] = filtered_image[6][14];
-            end
-            3: begin
-                LED[0] = filtered_image[6][15];
-            end
-            4: begin
-                LED[0] = filtered_image[16][16];
-            end
-            5: begin
-                LED[0] = filtered_image[16][17];
-            end
-            default begin
                 LED[0] = 0;
+                LED[1] = 0;
+                LED[2] = 1;
+            end
+            default: begin
+                LED[0] = 0;
+                LED[1] = 0;
+                LED[2] = 0;
             end
         endcase
-        LED[5:1] = 5'd0;
     end
+    // always_comb begin
+    //     case (switches) 
+    //         0: begin
+    //             LED[0] = filtered_image[5][14];
+    //         end
+    //         1: begin
+    //             LED[0] = filtered_image[5][15];
+    //         end
+    //         2: begin
+    //             LED[0] = filtered_image[6][14];
+    //         end
+    //         3: begin
+    //             LED[0] = filtered_image[6][15];
+    //         end
+    //         4: begin
+    //             LED[0] = filtered_image[16][16];
+    //         end
+    //         5: begin
+    //             LED[0] = filtered_image[16][17];
+    //         end
+    //         default begin
+    //             LED[0] = 0;
+    //         end
+    //     endcase
+    //     LED[5:1] = 5'd0;
+    // end
 
 endmodule
 
@@ -154,6 +180,61 @@ function automatic logic [7:0] value(input logic [23:0] hsv);
 endfunction
 
 function automatic logic is_hand_bit (input logic [23:0] hsv);
-    return hue(hsv) >= MIN_HUE && hue(hsv) <= MAX_HUE &&
-        saturation(hsv) >= MIN_SATURATION && value(hsv) >= MIN_VALUE;
+    return ~(hue(hsv) >= MIN_HUE && hue(hsv) <= MAX_HUE &&
+        saturation(hsv) >= MIN_SATURATION && value(hsv) >= MIN_VALUE);
 endfunction
+
+module classifier (
+    input logic init_in,
+    input logic [LENGTH-1:0][WIDTH-1:0] image,
+    output logic [1:0] result
+);
+
+    logic [31:0] sum;
+    logic [31:0] sum_left;
+    logic [4:0] leftmost_pixel;
+    logic [4:0] num_transitions;
+
+    initial begin
+        sum = 0;
+        sum_left = 0;
+        leftmost_pixel = 5'b11111;
+        num_transitions = 0;
+    end
+
+    always @(init_in) begin
+        if (init_in) begin
+            // Compute total pixels
+            for (int i = 0; i < LENGTH; i++) begin
+                for (int j = 0; j < WIDTH; j++) begin
+                    sum += {{31{1'b0}}, image[i][j]};
+                end
+            end
+
+            // Compute total left pixels
+            for (int i = 0; i < LENGTH; i++) begin
+                for (int j = 0; j < LEFT; j++) begin
+                    sum_left += {{31{1'b0}}, image[i][j]};
+                end
+            end
+
+            // Compute leftmost pixel
+            for (int i = 0; i < LENGTH; i++) begin
+                for (int j = 0; j < WIDTH; j++) begin
+                    if (init_in && j < leftmost_pixel && image[i][j]) begin
+                        leftmost_pixel = j[4:0];
+                    end
+                end
+            end
+
+            // Compute number of transitions
+            for (int i = 0; i < LENGTH - 1; i++) begin
+                if (image[i][leftmost_pixel + SHIFT] != image[i + 1][leftmost_pixel + SHIFT]) begin
+                    num_transitions++;
+                end
+            end
+
+            result = num_transitions == 4 ? 2'b10 : (sum_left > LENGTH*WIDTH/50 ? 2'b01 : 2'b00);
+        end
+    end
+endmodule

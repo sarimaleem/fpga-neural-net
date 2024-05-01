@@ -1,16 +1,15 @@
 `include "common.svh"
 
 module classifier (
-    input logic clk,
     input logic init_in,
-    input logic [LENGTH-1:0][WIDTH-1:0] image
+    input logic [LENGTH-1:0][WIDTH-1:0] image,
+    output logic [1:0] result
 );
 
     logic [31:0] sum;
     logic [31:0] sum_left;
     logic [4:0] leftmost_pixel;
     logic [4:0] num_transitions;
-    logic [1:0] result;
 
     initial begin
         sum = 0;
@@ -52,8 +51,6 @@ module classifier (
             end
 
             assign result = num_transitions == 4 ? 2'b10 : (sum_left > LENGTH*WIDTH/50 ? 2'b01 : 2'b00);
-            $display("num transitions: %d, sum: %d sum left: %d leftmost pixel: %d\n", num_transitions, sum, sum_left, leftmost_pixel);
-            $display("result: %d", result);
         end
     end
 endmodule
