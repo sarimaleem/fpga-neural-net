@@ -4,10 +4,7 @@ module image_transfer (
     input wire fpga_clk, // fpga clk, runs 50 mhz I think
     input wire pi_clk, // Raspberry Pi clock
     input wire data_in, // GPIO pin input, one bit
-    input wire rst, // Active high reset
-    input wire write_enable, // Enable writing to memory
-    input wire [3:0] switches, // Button inputs to select memory region
-    output logic [5:0] LED // LED output
+    input wire rst // Active high reset
 );
 
     // Image wires
@@ -18,14 +15,16 @@ module image_transfer (
     logic [23:0] hsv_buffer;
     logic [4:0] bit_cnt;
 
+
     logic slow_clk;
     
     // Debounce wires
     logic dbnc_bit;
     logic dbnc_rst;
-    logic dbnc_write_enable;
     logic dbnc_pi_clk;
 
+    classifier classifier (dbnc_rst, image_ready, filtered_image);
+    
     initial begin
         filtered_image = 0;
         row_index = 0;
@@ -38,7 +37,6 @@ module image_transfer (
 
         dbnc_bit = 0;
         dbnc_rst = 0;
-        dbnc_write_enable = 0;
         bit_cnt = 0;
         hsv_buffer = 0;
     end
@@ -48,7 +46,6 @@ module image_transfer (
     always @(posedge slow_clk) begin
         dbnc_bit = data_in;
         dbnc_rst = rst;
-        dbnc_write_enable = write_enable;
         dbnc_pi_clk = pi_clk;
     end
 
@@ -63,7 +60,7 @@ module image_transfer (
             bit_cnt = 0;
             filtered_image = 0;
         end
-        else if (dbnc_write_enable) begin
+        else begin
             if (bit_cnt < 23) begin
                 hsv_buffer[bit_cnt] = dbnc_bit;
                 bit_cnt++;
@@ -73,6 +70,8 @@ module image_transfer (
 
                 if (row_index < LENGTH && col_index < WIDTH) begin
                     filtered_image[row_index][col_index] = is_hand_bit(hsv_buffer);
+
+                    // $write("%b ", is_hand_bit(hsv_buffer));
                     
                     if (col_index == WIDTH - 1) begin
                         row_index++;
@@ -81,7 +80,7 @@ module image_transfer (
                     else begin
                         col_index++;
                     end
-                end 
+                end
 
                 // Reset buffer and bit counter
                 hsv_buffer = 0;
@@ -91,64 +90,6 @@ module image_transfer (
             end
         end
     end
-
-    // // assign LED[3:0] = switches;
-
-    // always_comb begin
-    //     case (switches) 
-    //         0: begin
-    //             LED[5:0] = image[0][5:0];
-    //         end
-    //         1: begin
-    //             LED[5:0] = image[1][5:0];
-    //         end
-    //         2: begin
-    //             LED[5:0] = image[2][5:0];
-    //         end
-    //         3: begin
-    //             LED[5:0] = image[3][5:0];
-    //         end
-    //         4: begin
-    //             LED[5:0] = image[100][5:0];
-    //         end
-    //         5: begin
-    //             LED[5:0] = image[300][5:0];
-    //         end
-    //         6: begin
-    //             LED[5:0] = image[400][5:0];
-    //         end
-    //         7: begin
-    //             LED[5:0] = image[500][5:0];
-    //         end
-    //         8: begin
-    //             LED[5:0] = image[600][5:0];
-    //         end
-    //         9: begin
-    //             LED[5:0] = image[700][5:0];
-    //         end
-    //         10: begin
-    //             LED[5:0] = image[800][5:0];
-    //         end
-    //         11: begin
-    //             LED[5:0] = image[900][5:0];
-    //         end
-    //         12: begin
-    //             LED[5:0] = image[1000][5:0];
-    //         end
-    //         13: begin
-    //             LED[5:0] = image[1798][5:0];
-    //         end
-    //         14: begin
-    //             LED[5:0] = image[1799][5:0];
-    //         end
-    //         15: begin
-    //             LED[5:0] = image[1799][5:0];
-    //         end
-    //         default begin
-    //             LED[5:0] = 0;
-    //         end
-    //     endcase
-    // end
 endmodule
 
 
@@ -162,7 +103,7 @@ module slow_down_clock(input fpga_clk, output slow_clk);
     
     always @(posedge fpga_clk) begin 
         counter++;
-        if(counter == 1000) begin
+        if (counter == 1000) begin
             clk = ~clk;
             counter = 0;
         end
@@ -184,6 +125,6 @@ function automatic logic [7:0] value(input logic [23:0] hsv);
 endfunction
 
 function automatic logic is_hand_bit (input logic [23:0] hsv);
-    return hue(hsv) >= MIN_HUE && hue(hsv) <= MAX_HUE &&
-        saturation(hsv) >= MIN_SATURATION && value(hsv) >= MIN_VALUE;
+    return ~(hue(hsv) >= MIN_HUE && hue(hsv) <= MAX_HUE &&
+        saturation(hsv) >= MIN_SATURATION && value(hsv) >= MIN_VALUE);
 endfunction
