@@ -51,7 +51,6 @@ module image_transfer (
 
     always @(posedge dbnc_pi_clk or posedge dbnc_rst) begin
         if (dbnc_rst) begin
-            $display("RESETTING!!!");
             filtered_image = 0;
             row_index = 0;
             col_index = 0;
@@ -75,7 +74,6 @@ module image_transfer (
                     // $write("%b ", is_hand_bit(hsv_buffer));
                     
                     if (col_index == WIDTH - 1) begin
-                        // $display();
                         row_index++;
                         col_index = 0;
                     end

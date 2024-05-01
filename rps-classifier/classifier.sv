@@ -21,7 +21,6 @@ module classifier (
 
     always @(init_in or rst) begin
         if (rst) begin
-            $display("RESETTING IN CLASSIFIER!!!!!!");
             sum = 0;
             sum_left = 0;
             leftmost_pixel = 5'b11111;
