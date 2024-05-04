@@ -1,3 +1,0 @@
-classifier.sv:76: error: A reference to a wire or reg (`i') is not allowed in a constant expression.
-classifier.sv:76: error: Array index expressions must be constant here.
-2 error(s) during elaboration.

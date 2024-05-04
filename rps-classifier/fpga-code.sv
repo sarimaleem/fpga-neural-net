@@ -1,14 +1,4 @@
-parameter LENGTH = 40;
-parameter WIDTH = 60;
-
-parameter SHIFT = LENGTH / 10;
-parameter LEFT = WIDTH * 4 / 10; // can change by one if needed
-
-parameter MIN_HUE = 36;
-parameter MIN_SATURATION = 25;
-parameter MIN_VALUE = 25;
-
-parameter MAX_HUE = 86;
+`include "common.svh"
 
 module neuralnet (
     input wire fpga_clk, // fpga clk, runs 50 mhz I think
@@ -21,8 +11,8 @@ module neuralnet (
 
     // Image wires
     logic [LENGTH-1:0][WIDTH-1:0] filtered_image;
-    logic [5:0] row_index;
-    logic [5:0] col_index;
+    logic [3:0] row_index;
+    logic [3:0] col_index;
     logic image_ready;
     logic [23:0] hsv_buffer;
     logic [4:0] bit_cnt;
@@ -90,10 +80,8 @@ module neuralnet (
 
                 if (row_index < LENGTH && col_index < WIDTH) begin
                     filtered_image[row_index][col_index] = is_hand_bit(hsv_buffer);
-                    // $write("%b ", is_hand_bit(hsv_buffer));
 
                     if (col_index == WIDTH - 1) begin
-                        // $display();
                         row_index++;
                         col_index = 0;
                     end
@@ -109,14 +97,17 @@ module neuralnet (
                 if (row_index == LENGTH) begin
                     casez (classify(filtered_image))
                         2'b00: begin
+                            $display("result: ROCK!");
                             LED[2:0] = 3'b001;
                             breadboard = 3'b110;
                         end
                         2'b01: begin
+                            $display("result: PAPER!");
                             LED[2:0] = 3'b010;
                             breadboard = 3'b101;
                         end
                         2'b10: begin
+                            $display("result: SCISSORS!");
                             LED[2:0] = 3'b100;
                             breadboard = 3'b011;
                         end

@@ -1,19 +1,8 @@
-SV_FILES = *.sv *.svh
+SV_FILES_FPGA=fpga-code.sv
 
 clean:
 	rm -r obj_dir
 	mkdir obj_dir
-
-lint:
-	verilator --lint-only --timing ${SV_FILES}
-
-build:
-	verilator --cc --exe --build --timing -j 0 --top-module data_init ${SV_FILES} tb.cpp 
-
-test: clean build
-	obj_dir/Vdata_init
-
-SV_FILES_FPGA=fpga-code.sv
 
 lint-fpga:
 	verilator --lint-only --timing ${SV_FILES_FPGA}
@@ -23,16 +12,3 @@ build-fpga: clean
 
 test-fpga: build-fpga
 	obj_dir/Vneuralnet
-
-
-# clean:
-# 	rm -r obj_dir
-# 	mkdir obj_dir
-
-# build: clean
-# 	iverilog -g2012 -o obj_dir/test.out *.sv *.svh &> out.txt
-
-# test: build
-# 	vvp obj_dir/test.out
-
-
