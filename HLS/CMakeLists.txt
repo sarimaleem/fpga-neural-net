@@ -1,7 +1,0 @@
-cmake_minimum_required(VERSION 2.8)
-project( Open_CV_Project )
-find_package(OpenCV REQUIRED)
-set(CMAKE_CXX_STANDARD 17)
-include_directories( ${OpenCV_INCLUDE_DIRS} )
-add_executable( Open_CV_Project main_neutered.cpp )
-target_link_libraries( Open_CV_Project  ${OpenCV_LIBS})

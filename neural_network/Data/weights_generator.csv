@@ -1,7 +1,0 @@
-import random
-
-random_numbers = [random.uniform(-1, 1) for _ in range(90_000)]
-
-# Write the random numbers to a file
-with open('weights.csv', 'w') as file:
-    file.write(','.join(map(str, random_numbers)))

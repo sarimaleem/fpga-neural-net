@@ -1,6 +1,0 @@
-*.out
-*.vcd
-.hdl_checker/
-db/
-incremental_db/
-hsv_test/venv/

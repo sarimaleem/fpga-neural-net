@@ -1,3 +1,0 @@
-/Users/dhruvnistala/VSCode/CS350C/FinalProject/HLS/CMakeFiles/Open_CV_Project.dir
-/Users/dhruvnistala/VSCode/CS350C/FinalProject/HLS/CMakeFiles/edit_cache.dir
-/Users/dhruvnistala/VSCode/CS350C/FinalProject/HLS/CMakeFiles/rebuild_cache.dir

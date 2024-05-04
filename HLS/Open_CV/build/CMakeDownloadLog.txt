@@ -1,3 +1,0 @@
-#use_cache "/Users/dhruvnistala/VSCode/CS350C/Final_Project/Open_CV/opencv/.cache"
-#match_hash_in_cmake_cache "OCV_DOWNLOAD_ADE_HASH_3rdparty_ade_v0_1_2d_zip"
-#match_hash_in_cmake_cache "OCV_DOWNLOAD_ORBBECSDK_HASH_3rdparty_orbbecsdk_v1_9_4_tar_gz"
