@@ -1,4 +1,4 @@
-python3 Image_preprocess.py /rock/0bioBZYFCXqJIulm.png | grep j && make test | grep -e 'sum' -e 'result' -e 'leftmost'
+# python3 Image_preprocess.py /rock/0bioBZYFCXqJIulm.png | grep j && make test | grep -e 'sum' -e 'result' -e 'leftmost'
 
 # python3 Image_preprocess.py /rock/foxUXc8WPRDAd6LM.png | grep j && make test | grep -e 'sum' -e 'result' -e 'leftmost'
 # python3 Image_preprocess.py /rock/IY007WkIgMgYMJRj.png | grep j && make test | grep -e 'sum' -e 'result' -e 'leftmost'

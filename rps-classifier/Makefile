@@ -13,16 +13,16 @@ build:
 test: clean build
 	obj_dir/Vdata_init
 
-SV_FILES_FPGA= image_transfer.sv classifier.sv
+SV_FILES_FPGA=fpga-code.sv
 
 lint-fpga:
 	verilator --lint-only --timing ${SV_FILES_FPGA}
 
 build-fpga: clean
-	verilator --cc --exe --build --timing -j 0 --top-module image_transfer ${SV_FILES_FPGA} image_transfer_tb.cpp 
+	verilator --cc --exe --build --timing -j 0 --top-module neuralnet ${SV_FILES_FPGA} image_transfer_tb.cpp 
 
 test-fpga: build-fpga
-	obj_dir/Vimage_transfer
+	obj_dir/Vneuralnet
 
 
 # clean:

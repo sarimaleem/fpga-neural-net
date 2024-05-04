@@ -1,8 +1,8 @@
 `ifndef GLOBAL_PARAMS_VH
 `define GLOBAL_PARAMS_VH
 
-parameter LENGTH = 20;
-parameter WIDTH = 30;
+parameter LENGTH = 10;
+parameter WIDTH = 15;
 
 parameter SHIFT = LENGTH / 10;
 parameter LEFT = WIDTH * 4 / 10; // can change by one if needed

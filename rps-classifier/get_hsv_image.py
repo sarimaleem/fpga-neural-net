@@ -1,12 +1,11 @@
-from PIL import Image
 import io as IO
 import numpy as np
 import cv2
 import os
 import sys
 
-WIDTH = 30
-LENGTH = 20
+WIDTH = 15
+LENGTH = 10
 
 def main():
     if len(sys.argv) == 2:

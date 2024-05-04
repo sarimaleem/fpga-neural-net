@@ -63,28 +63,20 @@ module classifier (
         end
     end
 
-    // always_comb begin
-    //     case (result)
-    //         0: begin
-    //             LED[0] = 1;
-    //             LED[1] = 0;
-    //             LED[2] = 0;
-    //         end
-    //         1: begin
-    //             LED[0] = 0;
-    //             LED[1] = 1;
-    //             LED[2] = 0;
-    //         end
-    //         2: begin
-    //             LED[0] = 0;
-    //             LED[1] = 0;
-    //             LED[2] = 1;
-    //         end
-    //         default: begin
-    //             LED[0] = 0;
-    //             LED[1] = 0;
-    //             LED[2] = 0;
-    //         end
-    //     endcase
-    // end
+    always_comb begin
+        case (result)
+            0: begin
+                $display("got here!");
+            end
+            1: begin
+                $display("why am I here!");
+            end
+            2: begin
+                $display("heyyy");
+            end
+            default: begin
+                $display("Default!");
+            end
+        endcase
+    end
 endmodule

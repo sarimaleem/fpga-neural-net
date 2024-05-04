@@ -1,4 +1,4 @@
-#include "Vimage_transfer.h"
+#include "Vneuralnet.h"
 #include "svdpi.h"
 #include "verilated.h"
 
@@ -16,7 +16,7 @@ using namespace std;
 
 VerilatedContext *contextp;
 
-void simulate_slow_clock_cycle(Vimage_transfer *dut) {
+void simulate_slow_clock_cycle(Vneuralnet *dut) {
     // Simulate an entire slow clock cycle
     for (int i = 0; i < NUM_FAST_CYCLES * 2; i++) {
         dut->fpga_clk = 0;
@@ -26,7 +26,7 @@ void simulate_slow_clock_cycle(Vimage_transfer *dut) {
     }
 }
 
-void transfer_image(Vimage_transfer *dut) {
+void transfer_image(Vneuralnet *dut) {
     ifstream hsv_file("hsv_image.txt", ios::binary);
     if (!hsv_file) {
         cerr << "Error opening file" << endl;
@@ -56,14 +56,18 @@ void transfer_image(Vimage_transfer *dut) {
             simulate_slow_clock_cycle(dut);
         }
     }
+
+    for (int i = 0; i < 1000; i++) {
+        simulate_slow_clock_cycle(dut);
+    }
 }
 
 int main(int argc, char **argv) {
     contextp = new VerilatedContext;
     contextp->commandArgs(argc, argv);
 
-    auto *dut = new Vimage_transfer{contextp};
-    for (int i = 0; i < 3; i++) {
+    auto *dut = new Vneuralnet{contextp};
+    for (int i = 0; i < 1; i++) {
         transfer_image(dut);
     }
 
